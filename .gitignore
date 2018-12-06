@@ -2,10 +2,12 @@
 # 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
 ################################################################################
 
-/Miraclesoft.Common.Utility/Miraclesoft.Common.Test/bin/Debug/netcoreapp2.2
-/Miraclesoft.Common.Utility/Miraclesoft.Common.Test/obj
-/Miraclesoft.Common.Utility/Miraclesoft.Common.Utility/bin/Debug/netstandard2.0
 *.dll
 *.pdb
 *.txt
+/Miraclesoft.Common.Utility/.vs
+/Miraclesoft.Common.Utility/Miraclesoft.Common.Test/bin
+
+/Miraclesoft.Common.Utility/Miraclesoft.Common.Test/obj
+/Miraclesoft.Common.Utility/Miraclesoft.Common.Utility/bin
 /Miraclesoft.Common.Utility/Miraclesoft.Common.Utility/obj
