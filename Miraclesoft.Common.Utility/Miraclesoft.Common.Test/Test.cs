@@ -1,6 +1,8 @@
 ﻿using System;
 using Miraclesoft.Common.Utility.RMB;
 using Miraclesoft.Common.Utility.Extension.DateTimeStamp;
+using Miraclesoft.Common.Utility.Exceptions;
+
 namespace Miraclesoft.Common.Test
 {
     /// <summary>
@@ -51,7 +53,7 @@ namespace Miraclesoft.Common.Test
             int timestamp_10bit = DateTime.Now.ToLinuxTimeStamp_10bit();
             Console.WriteLine($"DateTime:{DateTime.Now}       10bit timestamp{timestamp_10bit}");
             Console.WriteLine("10位时间戳转DateTime:");
-            Console.WriteLine($"10bit timestamp:{timestamp_10bit} DateTime:{timestamp_10bit.ToDateTime()}");
+            Console.WriteLine($"10bit timestamp:{timestamp_10bit}       DateTime:{timestamp_10bit.ToDateTime()}");
         }
     }
 }
