@@ -1,6 +1,6 @@
 ﻿using System;
 using Miraclesoft.Common.Utility.RMB;
-using Miraclesoft.Common.Utility.Extension.DateTimeStamp;
+using Miraclesoft.Common.Utility.DateTimeStamp;
 using Miraclesoft.Common.Utility.Exceptions;
 
 namespace Miraclesoft.Common.Test
