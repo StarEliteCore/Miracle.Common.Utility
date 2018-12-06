@@ -3,3 +3,8 @@
 ################################################################################
 
 /Miraclesoft.Common.Utility/Miraclesoft.Common.Test/bin/Debug/netcoreapp2.2
+/Miraclesoft.Common.Utility/Miraclesoft.Common.Test/obj
+/Miraclesoft.Common.Utility/Miraclesoft.Common.Utility/bin/Debug/netstandard2.0
+*.dll
+*.pdb
+*.txt
