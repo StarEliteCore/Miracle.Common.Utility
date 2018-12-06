@@ -2,6 +2,8 @@
 using Miraclesoft.Common.Utility.RMB;
 using Miraclesoft.Common.Utility.DateTimeStamp;
 using Miraclesoft.Common.Utility.Exceptions;
+using System.Text;
+using Miraclesoft.Common.Utility.PinYin;
 
 namespace Miraclesoft.Common.Test
 {
@@ -38,9 +40,12 @@ namespace Miraclesoft.Common.Test
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             }
-            Console.WriteLine("RMB Test is complete");
+            Console.WriteLine("RMBTest complete");
         }
 
+        /// <summary>
+        /// DateStampExtensionTest
+        /// </summary>
         public void DateStampExtensionTest()
         {
             Console.WriteLine();
@@ -59,6 +64,48 @@ namespace Miraclesoft.Common.Test
             Console.WriteLine($"10bit timestamp:{timestamp_10bit}       DateTime:{timestamp_10bit.ToDateTime()}");
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("DateStampExtensionTest Complete");
+            Console.WriteLine();
+        }
+
+        /// <summary>
+        /// PyToolsTest
+        /// </summary>
+        public void PyToolsTest()
+        {
+            Console.WriteLine();
+            Console.WriteLine("PyToolsTest");
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            string[] maxims = {
+                "事常与人违，事总在人为123456789",
+                @"骏马是跑出来的，强兵是打出来的?|\!@$%^&*()_+=-,./';:{}[]<>",
+                "驾驭命运的舵是奋斗。不抱有一丝幻想，不放弃一点机会,不停止一日努力.",
+            };
+            string[] medicines = {
+                "聚维酮碘溶液",
+                "开塞露",
+                "炉甘石洗剂",
+                "氢化可的松软膏5461",
+                "sadgsad测试1",
+                "输血记录"
+            };
+            Console.WriteLine("UTF8句子拼音：");
+            foreach (var s in maxims)
+            {
+                Console.WriteLine($"汉字：{s}\n拼音：{PyTools.GetPinYin(s, '%')}\n");
+            }
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            var GBK = Encoding.GetEncoding("GBK");
+            Console.WriteLine("GBK拼音简码：");
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("不支持汉字使用自定义符号'%'替代测试:");
+            Console.WriteLine($"錒：\n简码：{PyTools.GetInitials("錒", '%', GBK)}\n");
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            foreach (var m in medicines)
+            {
+                Console.WriteLine($"药品：{PyTools.ConvertEncoding(m, Encoding.UTF8, GBK)}\n简码：{PyTools.GetInitials(PyTools.ConvertEncoding(m, Encoding.UTF8, GBK), '测', GBK)}\n");
+            }
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("PyToolsTest Complete");
             Console.WriteLine();
         }
     }
