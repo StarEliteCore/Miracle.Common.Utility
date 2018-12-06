@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28315.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miraclesoft.Common.Utility", "Miraclesoft.Common.Utility\Miraclesoft.Common.Utility.csproj", "{DF12411F-FD7F-4535-80D5-70A1231F6D4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF12411F-FD7F-4535-80D5-70A1231F6D4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF12411F-FD7F-4535-80D5-70A1231F6D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF12411F-FD7F-4535-80D5-70A1231F6D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF12411F-FD7F-4535-80D5-70A1231F6D4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B71EB6B-BBB3-4DB1-A4E5-A4CB9D8D46AE}
+	EndGlobalSection
+EndGlobal
