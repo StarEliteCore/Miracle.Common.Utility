@@ -1,9 +1,6 @@
-﻿using Miraclesoft.Common.Utility.Exceptions;
+﻿using System;
 using Miraclesoft.Common.Utility.RMB;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
+using Miraclesoft.Common.Utility.Extension.DateTimeStamp;
 namespace Miraclesoft.Common.Test
 {
     /// <summary>
@@ -40,6 +37,21 @@ namespace Miraclesoft.Common.Test
                 Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             }
             Console.WriteLine("RMB Test is complete");
+        }
+
+        public void DateStampExtensionTest()
+        {
+            Console.WriteLine("DateTime转13位时间戳:");
+            long timestamp_13bit = DateTime.Now.ToUnixTimeStamp_13bit();
+            Console.WriteLine($"DateTime:{DateTime.Now}       13bit timestamp{timestamp_13bit}");
+            Console.WriteLine("13位时间转DateTime:");
+            Console.WriteLine($"13bit timestamp:{timestamp_13bit} DateTime:{timestamp_13bit.ToDateTime()}");
+            Console.WriteLine("");
+            Console.WriteLine("DateTime转10位时间戳:");
+            int timestamp_10bit = DateTime.Now.ToLinuxTimeStamp_10bit();
+            Console.WriteLine($"DateTime:{DateTime.Now}       10bit timestamp{timestamp_10bit}");
+            Console.WriteLine("10位时间戳转DateTime:");
+            Console.WriteLine($"10bit timestamp:{timestamp_10bit} DateTime:{timestamp_10bit.ToDateTime()}");
         }
     }
 }

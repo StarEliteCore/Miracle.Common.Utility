@@ -10,7 +10,9 @@ namespace Miraclesoft.Common.Test
             #region RMBTest
             test.RMBTest();
             #endregion
-
+            #region DateTimeStampExtensionTest
+            test.DateStampExtensionTest();
+            #endregion
             Console.ReadKey();
         }
     }
