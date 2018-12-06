@@ -4,6 +4,7 @@ using Miraclesoft.Common.Utility.DateTimeStamp;
 using Miraclesoft.Common.Utility.Exceptions;
 using System.Text;
 using Miraclesoft.Common.Utility.PinYin;
+using Miraclesoft.Common.Utility.ChineseLunar;
 
 namespace Miraclesoft.Common.Test
 {
@@ -106,6 +107,23 @@ namespace Miraclesoft.Common.Test
             }
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("PyToolsTest Complete");
+            Console.WriteLine();
+        }
+
+        /// <summary>
+        /// 农历测试
+        /// </summary>
+        public void LunarTest()
+        {
+            Console.WriteLine();
+            Console.WriteLine("LunarTest");
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("测试农历输出:20181120");
+            Console.WriteLine(Lunar.GetDate("20181120"));
+            Console.WriteLine("测试农历输出:DateTime.Now");
+            Console.WriteLine(Lunar.GetDate(DateTime.Now));
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LunarTest Complete");
             Console.WriteLine();
         }
     }

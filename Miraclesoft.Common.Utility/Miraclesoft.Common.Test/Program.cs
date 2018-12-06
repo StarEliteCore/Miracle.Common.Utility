@@ -28,6 +28,12 @@ namespace Miraclesoft.Common.Test
             test.PyToolsTest();
             #endregion
 
+            #region LunarTest
+            test.LunarTest();
+            #endregion
+
+
+
             Console.ReadKey();
         }
     }
