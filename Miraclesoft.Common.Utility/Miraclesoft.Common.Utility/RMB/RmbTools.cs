@@ -120,7 +120,7 @@ namespace Miraclesoft.Common.Utility.RMB
                 }
                 return NumStr_R;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new RmbException("转换失败!", ex);
             }
