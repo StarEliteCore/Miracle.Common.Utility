@@ -25,17 +25,14 @@ namespace Miraclesoft.Common.Test
             var rmbtestnumber = 1247823234234312648.34m;
             Console.WriteLine($"原始文字:{rmbtestnumber}");
             Console.WriteLine(RmbTools.ConvertToChinese(rmbtestnumber));
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("字符串转中文大写:");
             var rmbteststring = "878343235234853234.56";
             Console.WriteLine($"原始文字:{rmbteststring}");
             Console.WriteLine(RmbTools.ConvertToChinese(rmbteststring));
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             try
             {
                 Console.WriteLine("异常测试:");
                 Console.WriteLine(RmbTools.ConvertToChinese("测试"));
-                Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             }
             catch (RmbException ex)
             {
@@ -95,13 +92,10 @@ namespace Miraclesoft.Common.Test
             {
                 Console.WriteLine($"汉字：{s}\n拼音：{PyTools.GetPinYin(s, '%')}\n");
             }
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             var GBK = Encoding.GetEncoding("GBK");
             Console.WriteLine("GBK拼音简码：");
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("不支持汉字使用自定义符号'%'替代测试:");
             Console.WriteLine($"錒：\n简码：{PyTools.GetInitials("錒", '%', GBK)}\n");
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             foreach (var m in medicines)
             {
                 Console.WriteLine($"药品：{PyTools.ConvertEncoding(m, Encoding.UTF8, GBK)}\n简码：{PyTools.GetInitials(PyTools.ConvertEncoding(m, Encoding.UTF8, GBK), '测', GBK)}\n");
@@ -121,31 +115,23 @@ namespace Miraclesoft.Common.Test
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine($"测试农历输出年月日.非特定日期{DateTime.Now}");
             Console.WriteLine($"年:\t{ToLunar.LunarYear},月:\t{ToLunar.LunarMonth},日:\t{ToLunar.LunarDay}");
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine($"星座:非特定日期{DateTime.Now}");
             Console.WriteLine($"星座:{ToLunar.Constellation}");
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine($"属相:非特定日期{DateTime.Now}");
             Console.WriteLine($"属相:{ToLunar.Animal}");
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             ToLunar.Init(new DateTime(1994, 11, 15));
             Console.WriteLine($"测试农历输出年月日,特定日期:1994-11-15-{ToLunar.ChineseLunar}");
             Console.WriteLine($"年:\t{ToLunar.LunarYear},月:\t{ToLunar.LunarMonth},日:\t{ToLunar.LunarDay}");
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("星座:1994-11-15");
             Console.WriteLine($"星座:{ToLunar.Constellation}");
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("属相:1994-11-15");
             Console.WriteLine($"属相:{ToLunar.Animal}");
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("测试农历输出:DateTime.Now");
             ToLunar.Init(DateTime.Now);
             Console.WriteLine(ToLunar.ChineseLunar);
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("测试农历输出:20181120");
             ToLunar.Init("20181120");
             Console.WriteLine(ToLunar.ChineseLunar);
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("测试农历偏移:");
             Console.WriteLine("增加20年:");
             ToLunar.AddYear(20);
@@ -153,14 +139,12 @@ namespace Miraclesoft.Common.Test
             Console.WriteLine("减少10年:");
             ToLunar.AddYear(-10);
             Console.WriteLine(ToLunar.ChineseLunar);
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("增加13月:");
             ToLunar.AddMonth(13);
             Console.WriteLine(ToLunar.ChineseLunar);
             Console.WriteLine("减少12月:");
             ToLunar.AddMonth(-12);
             Console.WriteLine(ToLunar.ChineseLunar);
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("增加15天:");
             ToLunar.AddDay(15);
             Console.WriteLine(ToLunar.ChineseLunar);
@@ -200,7 +184,6 @@ namespace Miraclesoft.Common.Test
             };
             var zhangsanstr = XmlSerializerTool.ToXml(zhangsan);
             Console.WriteLine(zhangsanstr);
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("Binary序列化测试:");
             Studet lisi = new Studet
             {
@@ -210,11 +193,9 @@ namespace Miraclesoft.Common.Test
             };
             var lisistr = BinarySerializerTool.ToBinary(lisi);
             Console.WriteLine(lisistr);
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine($"Xml反序列化测试:");           
             var zhangs = XmlSerializerTool.FromXml<Studet>(zhangsanstr);
             Console.WriteLine(zhangs.ToCmd());
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("Binary反序列化测试:");
             var lis = BinarySerializerTool.FromBinary<Studet>(lisistr);
             Console.WriteLine(lis.ToCmd());
