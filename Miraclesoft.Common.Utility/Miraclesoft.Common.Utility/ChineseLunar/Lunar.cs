@@ -18,6 +18,69 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
         private static int First_Year = -1;
         private static int Last_Year = -1;
         private static readonly string[] dataTopInit = Init();
+        /// <summary>
+        /// 农历年
+        /// </summary>
+        private static string _Year = "";
+        /// <summary>
+        /// 农历月
+        /// </summary>
+        private static string _Month = "";
+        /// <summary>
+        /// 农历天
+        /// </summary>
+        private static string _Day = "";
+        /// <summary>
+        /// 获取特定日期农历年份,若是未调用GetData传入特定日期,则返回当前日期的农历年份
+        /// </summary>
+        public static string LunarYear
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(_Year.Trim()))
+                    return _Year;
+                else
+                {
+                    GetDate(DateTime.Now);
+                    return _Year;
+                }
+            }
+            private set => _Year = value;
+        }
+        /// <summary>
+        /// 获取特定日期农历月份,若是未调用GetData传入特定日期,则返回当前日期的农历月份
+        /// </summary>
+        public static string LunarMonth
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(_Month.Trim()))
+                    return _Month;
+                else
+                {
+                    GetDate(DateTime.Now);
+                    return _Month;
+                }
+            }
+            private set => _Month = value;
+        }
+        /// <summary>
+        /// 获取特定日期农历天,若是未调用GetData传入特定日期,则返回当前日期的农历天
+        /// </summary>
+        public static string LunarDay
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(_Day.Trim()))
+                    return _Day;
+                else
+                {
+                    GetDate(DateTime.Now);
+                    return _Day;
+                }
+            }
+            private set => _Day = value;
+        }
 
         /// <summary>
         /// 初始化
@@ -167,7 +230,7 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
             var sum = 0 - bigOrLitterSort[0] - bigOrLitterSort[1] - 29 - 29;//去年11月1日的相对天数,为负数
             var i = 0;//月份
             while (dif >= sum)
-                sum += (bigOrLitterSort[i++] + 29); // 加上每月的农历天数
+                sum += bigOrLitterSort[i++] + 29; // 加上每月的农历天数
             var year = int.Parse(now.Substring(0, 4));//获取年份
             var result = new int[3];// 数组分别存储年月日.
             result[0] = dif < 0 ? year - 1 : year;//在过年前 取去年,在过年后 年份取今年.
@@ -436,11 +499,14 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
         {
             var sb = new StringBuilder("");
             var result = Cast2Array(date);
-            sb.Append(FormatYear(result[0]));
+            sb.Append(FormatYear(result[0]));            
             sb.Append("年");
-            sb.Append(FormatMonth(result[1]));
+            sb.Append(FormatMonth(result[1]));            
             sb.Append("月");
             sb.Append(FormatDay(result[2]));
+            LunarYear = FormatYear(result[0]);
+            LunarMonth = FormatMonth(result[1]);
+            LunarDay = FormatDay(result[2]);
             return sb.ToString();
         }
 

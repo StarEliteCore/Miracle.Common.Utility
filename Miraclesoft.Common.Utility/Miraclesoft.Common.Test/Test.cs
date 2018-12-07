@@ -118,6 +118,15 @@ namespace Miraclesoft.Common.Test
             Console.WriteLine();
             Console.WriteLine("LunarTest");
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("测试农历输出年月日.非特定日期");
+            Console.WriteLine($"年:{Lunar.LunarYear},月:{Lunar.LunarMonth},日:{Lunar.LunarDay}");
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine($"测试农历输出年月日,特定日期:1994-11-15-{Lunar.GetDate(new DateTime(1994, 11, 15))}");
+            Console.WriteLine($"年:{Lunar.LunarYear},月:{Lunar.LunarMonth},日:{Lunar.LunarDay}");
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("测试农历输出:DateTime.Now");
+            Console.WriteLine(Lunar.GetDate(DateTime.Now));
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("测试农历输出:20181120");
             Console.WriteLine(Lunar.GetDate("20181120"));
             Console.WriteLine("测试农历输出:DateTime.Now");
