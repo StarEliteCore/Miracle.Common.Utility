@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Runtime.Serialization;
 
 /// <summary>
 /// 异常
@@ -32,6 +32,10 @@ namespace Miraclesoft.Common.Utility.Exceptions
         /// <param name="message">消息</param>
         /// <param name="innerException">异常对象</param>
         public RmbException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
+        protected RmbException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

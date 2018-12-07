@@ -5,6 +5,7 @@ using Miraclesoft.Common.Utility.Exceptions;
 using System.Text;
 using Miraclesoft.Common.Utility.PinYin;
 using Miraclesoft.Common.Utility.ChineseLunar;
+using Miraclesoft.Common.Utility.Serialization;
 
 namespace Miraclesoft.Common.Test
 {
@@ -168,6 +169,57 @@ namespace Miraclesoft.Common.Test
             Console.WriteLine(ToLunar.ChineseLunar);
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("LunarTest Complete");
+            Console.WriteLine();
+        }
+
+        [Serializable]
+        public class Studet
+        {
+            public string Name { get; set; }
+
+            public string Sex { get; set; }
+
+            public int Age { get; set; }
+            public string ToCmd() => $"姓名:{Name},性别:{Sex},年龄:{Age}";
+        }
+
+        /// <summary>
+        /// 序列化测试
+        /// </summary>
+        public void SerializerTest()
+        {
+            Console.WriteLine();
+            Console.WriteLine("SerializerTest");
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine($"Xml序列化测试:");
+            Studet zhangsan = new Studet
+            {
+                Name = "张三",
+                Sex = "女",
+                Age = 23
+            };
+            var zhangsanstr = XmlSerializerTool.ToXml(zhangsan);
+            Console.WriteLine(zhangsanstr);
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("Binary序列化测试:");
+            Studet lisi = new Studet
+            {
+                Name = "李四",
+                Sex = "男",
+                Age = 25
+            };
+            var lisistr = BinarySerializerTool.ToBinary(lisi);
+            Console.WriteLine(lisistr);
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine($"Xml反序列化测试:");           
+            var zhangs = XmlSerializerTool.FromXml<Studet>(zhangsanstr);
+            Console.WriteLine(zhangs.ToCmd());
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("Binary反序列化测试:");
+            var lis = BinarySerializerTool.FromBinary<Studet>(lisistr);
+            Console.WriteLine(lis.ToCmd());
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("SerializerTest Complete");
             Console.WriteLine();
         }
     }

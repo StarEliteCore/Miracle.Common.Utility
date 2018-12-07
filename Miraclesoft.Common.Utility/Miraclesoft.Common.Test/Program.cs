@@ -9,7 +9,7 @@ namespace Miraclesoft.Common.Test
         {
             Test test = new Test();
 
-            #region RMBTest
+            #region 人民币工具测试
             test.RMBTest();
             #endregion
 
@@ -17,7 +17,7 @@ namespace Miraclesoft.Common.Test
             test.DateStampExtensionTest();
             #endregion
 
-            #region PyToolsTest
+            #region 拼音工具测试
             /**
              * 默认情况下.Net Core只支持28951,UTF-8,UTF-16,其他的编码格式均不支持.
              * 工具库已经引用了System.Text.Encoding.CodePages.dll
@@ -28,8 +28,12 @@ namespace Miraclesoft.Common.Test
             test.PyToolsTest();
             #endregion
 
-            #region LunarTest
+            #region 农历测试
             test.LunarTest();
+            #endregion
+
+            #region 序列化测试
+            test.SerializerTest();
             #endregion
 
 
