@@ -1,6 +1,6 @@
 ﻿namespace Miraclesoft.Common.Utility.ChineseLunar
 {
-    internal static class Configs
+    internal static class LunarConfigs
     {
         public static string[] Config { get; } =
         {

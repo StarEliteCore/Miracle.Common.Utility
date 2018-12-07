@@ -122,6 +122,93 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
         /// </summary>
         private static void SetInDate(DateTime value) => _date = value;
 
+        #region 星座
+        /// <summary>
+        /// 获取该日期所属星座
+        /// </summary>
+        public static string Constellation
+        {
+            get
+            {
+                if (_date == null)
+                {
+                    Init(DateTime.Now);
+                    return GetConstellation(_date);
+                }
+                else
+                    return GetConstellation(_date);
+            }
+        }
+
+        /// <summary>
+        /// 获取星座
+        /// </summary>
+        /// <param name="date">时间</param>
+        /// <returns></returns>
+        private static string GetConstellation(DateTime date)
+        {
+            int index = 0;
+            var y = date.Year;
+            var m = date.Month;
+            var d = date.Day;
+            y = m * 100 + d;
+            if (((y >= 321) && (y <= 419)))
+                index = 0;
+            else if ((y >= 420) && (y <= 520))
+                index = 1;
+            else if ((y >= 521) && (y <= 620))
+                index = 2;
+            else if ((y >= 621) && (y <= 722))
+                index = 3;
+            else if ((y >= 723) && (y <= 822))
+                index = 4;
+            else if ((y >= 823) && (y <= 922))
+                index = 5;
+            else if ((y >= 923) && (y <= 1022))
+                index = 6;
+            else if ((y >= 1023) && (y <= 1121))
+                index = 7;
+            else if ((y >= 1122) && (y <= 1221))
+                index = 8;
+            else if ((y >= 1222) || (y <= 119))
+                index = 9;
+            else if ((y >= 120) && (y <= 218))
+                index = 10;
+            else if ((y >= 219) && (y <= 320))
+                index = 11;
+            else
+                index = 0;
+            return ConstellationConfigs.ConstellationConfig[index];
+        }
+        #endregion
+
+        #region 属相
+        #region Animal
+        /// <summary>
+        /// 计算属相的索引，注意虽然属相是以农历年来区别的，但是目前在实际使用中是按公历来计算的
+        /// 鼠年为1,其它类推
+        /// </summary>
+        public static string Animal
+        {
+            get
+            {
+                if (_date != null)
+                {
+                    int offset = _date.Year - 1900;//1900年为鼠年
+                    return AnimalConfigs.AnimalConfig[offset % 12];
+                }
+                else
+                {
+                    Init(DateTime.Now);
+                    int offset = _date.Year - 1900;//1900年为鼠年
+                    return AnimalConfigs.AnimalConfig[offset % 12];
+                }
+            }
+        }
+        #endregion
+        #endregion
+
+
         /// <summary>
         /// 对初始化日期偏移天数,对当前日期进行天数增加,正数为加,负数为减.注意:该操作会导致初始化使用的日期发生变化,若要使用原有日期,请重新初始化
         /// </summary>
@@ -159,7 +246,7 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
         /// <returns></returns>
         private static string[] Init()
         {
-            var dataTop = Configs.Config;
+            var dataTop = LunarConfigs.Config;
             var year = dataTop[1].Substring(0, 4);
             var lastYearStr = dataTop[dataTop.Length - 1].Substring(0, 4);
             First_Year = int.Parse(year);
