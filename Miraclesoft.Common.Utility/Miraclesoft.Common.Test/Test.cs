@@ -31,7 +31,7 @@ namespace Miraclesoft.Common.Test
             Console.WriteLine(RmbTools.ConvertToChinese(rmbteststring));
             try
             {
-                Console.WriteLine("异常测试:");
+                Console.WriteLine("异常:");
                 Console.WriteLine(RmbTools.ConvertToChinese("测试"));
             }
             catch (RmbException ex)
@@ -52,13 +52,13 @@ namespace Miraclesoft.Common.Test
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("DateTime转13位时间戳:");
             long timestamp_13bit = DateTime.Now.ToUnixTimeStamp_13bit();
-            Console.WriteLine($"DateTime:{DateTime.Now}       13bit timestamp{timestamp_13bit}");
+            Console.WriteLine($"DateTime:{DateTime.Now}       13bit timestamp:{timestamp_13bit}");
             Console.WriteLine("13位时间转DateTime:");
             Console.WriteLine($"13bit timestamp:{timestamp_13bit} DateTime:{timestamp_13bit.ToDateTime()}");
             Console.WriteLine();
             Console.WriteLine("DateTime转10位时间戳:");
             int timestamp_10bit = DateTime.Now.ToLinuxTimeStamp_10bit();
-            Console.WriteLine($"DateTime:{DateTime.Now}       10bit timestamp{timestamp_10bit}");
+            Console.WriteLine($"DateTime:{DateTime.Now}       10bit timestamp:{timestamp_10bit}");
             Console.WriteLine("10位时间戳转DateTime:");
             Console.WriteLine($"10bit timestamp:{timestamp_10bit}       DateTime:{timestamp_10bit.ToDateTime()}");
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
@@ -82,8 +82,6 @@ namespace Miraclesoft.Common.Test
             string[] medicines = {
                 "聚维酮碘溶液",
                 "开塞露",
-                "炉甘石洗剂",
-                "氢化可的松软膏5461",
                 "sadgsad测试1",
                 "输血记录"
             };
@@ -113,44 +111,38 @@ namespace Miraclesoft.Common.Test
             Console.WriteLine();
             Console.WriteLine("LunarTest");
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine($"测试农历输出年月日.非特定日期{DateTime.Now}");
-            Console.WriteLine($"年:\t{ToLunar.LunarYear},月:\t{ToLunar.LunarMonth},日:\t{ToLunar.LunarDay}");
-            Console.WriteLine($"星座:非特定日期{DateTime.Now}");
+            Console.WriteLine($"农历输出年月日.当前系统时间 {DateTime.Now}");
+            Console.WriteLine($"年:{ToLunar.LunarYear} 月:{ToLunar.LunarMonth} 日:{ToLunar.LunarDay}");
+            Console.WriteLine($"星座:当前系统时间 {DateTime.Now}");
             Console.WriteLine($"星座:{ToLunar.Constellation}");
-            Console.WriteLine($"属相:非特定日期{DateTime.Now}");
+            Console.WriteLine($"属相:当前系统时间 {DateTime.Now}");
             Console.WriteLine($"属相:{ToLunar.Animal}");
             ToLunar.Init(new DateTime(1994, 11, 15));
-            Console.WriteLine($"测试农历输出年月日,特定日期:1994-11-15-{ToLunar.ChineseLunar}");
-            Console.WriteLine($"年:\t{ToLunar.LunarYear},月:\t{ToLunar.LunarMonth},日:\t{ToLunar.LunarDay}");
+            Console.WriteLine($"农历输出年月日:1994-11-15 {ToLunar.ChineseLunar}");
+            Console.WriteLine($"年:{ToLunar.LunarYear} 月:{ToLunar.LunarMonth} 日:{ToLunar.LunarDay}");
             Console.WriteLine("星座:1994-11-15");
             Console.WriteLine($"星座:{ToLunar.Constellation}");
             Console.WriteLine("属相:1994-11-15");
             Console.WriteLine($"属相:{ToLunar.Animal}");
-            Console.WriteLine("测试农历输出:DateTime.Now");
+            Console.WriteLine("农历输出:当前系统时间");
             ToLunar.Init(DateTime.Now);
             Console.WriteLine(ToLunar.ChineseLunar);
-            Console.WriteLine("测试农历输出:20181120");
+            Console.WriteLine("农历输出:20181120");
             ToLunar.Init("20181120");
             Console.WriteLine(ToLunar.ChineseLunar);
-            Console.WriteLine("测试农历偏移:");
-            Console.WriteLine("增加20年:");
+            Console.WriteLine("农历偏移:");
             ToLunar.AddYear(20);
-            Console.WriteLine(ToLunar.ChineseLunar);
-            Console.WriteLine("减少10年:");
+            Console.WriteLine($"增加20年:{ToLunar.ChineseLunar}");
             ToLunar.AddYear(-10);
-            Console.WriteLine(ToLunar.ChineseLunar);
-            Console.WriteLine("增加13月:");
+            Console.WriteLine($"减少10年:{ToLunar.ChineseLunar}");
             ToLunar.AddMonth(13);
-            Console.WriteLine(ToLunar.ChineseLunar);
-            Console.WriteLine("减少12月:");
+            Console.WriteLine($"增加13月:{ToLunar.ChineseLunar}");
             ToLunar.AddMonth(-12);
-            Console.WriteLine(ToLunar.ChineseLunar);
-            Console.WriteLine("增加15天:");
+            Console.WriteLine($"减少12月:{ToLunar.ChineseLunar}");
             ToLunar.AddDay(15);
-            Console.WriteLine(ToLunar.ChineseLunar);
-            Console.WriteLine("减少12天:");
+            Console.WriteLine($"增加15天:{ToLunar.ChineseLunar}");
             ToLunar.AddDay(-12);
-            Console.WriteLine(ToLunar.ChineseLunar);
+            Console.WriteLine($"减少12天:{ToLunar.ChineseLunar}");
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("LunarTest Complete");
             Console.WriteLine();
@@ -164,7 +156,7 @@ namespace Miraclesoft.Common.Test
             public string Sex { get; set; }
 
             public int Age { get; set; }
-            public string ToCmd() => $"姓名:{Name},性别:{Sex},年龄:{Age}";
+            public string ToCmd() => $"姓名:{Name} 性别:{Sex} 年龄:{Age}";
         }
 
         /// <summary>
@@ -175,7 +167,7 @@ namespace Miraclesoft.Common.Test
             Console.WriteLine();
             Console.WriteLine("SerializerTest");
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine($"Xml序列化测试:");
+            Console.WriteLine($"Xml序列化:");
             Studet zhangsan = new Studet
             {
                 Name = "张三",
@@ -184,7 +176,7 @@ namespace Miraclesoft.Common.Test
             };
             var zhangsanstr = XmlSerializerTool.ToXml(zhangsan);
             Console.WriteLine(zhangsanstr);
-            Console.WriteLine("Binary序列化测试:");
+            Console.WriteLine("Binary序列化:");
             Studet lisi = new Studet
             {
                 Name = "李四",
@@ -193,10 +185,10 @@ namespace Miraclesoft.Common.Test
             };
             var lisistr = BinarySerializerTool.ToBinary(lisi);
             Console.WriteLine(lisistr);
-            Console.WriteLine($"Xml反序列化测试:");           
+            Console.WriteLine($"Xml反序列化:");           
             var zhangs = XmlSerializerTool.FromXml<Studet>(zhangsanstr);
             Console.WriteLine(zhangs.ToCmd());
-            Console.WriteLine("Binary反序列化测试:");
+            Console.WriteLine("Binary反序列化:");
             var lis = BinarySerializerTool.FromBinary<Studet>(lisistr);
             Console.WriteLine(lis.ToCmd());
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");

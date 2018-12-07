@@ -27,7 +27,7 @@ namespace Miraclesoft.Common.Utility.RMB
             }
             catch (Exception ex)
             {
-                throw new RmbException("转换失败!", ex);
+                throw new RmbException("转化为中文汉字大写失败!", ex);
             }
         }
 
@@ -44,7 +44,7 @@ namespace Miraclesoft.Common.Utility.RMB
             }
             catch (Exception ex)
             {
-                throw new RmbException("转换失败!", ex);
+                throw new RmbException("数据类型异常,转化为中文汉字大写失败!", ex);
             }
         }
 
@@ -122,7 +122,7 @@ namespace Miraclesoft.Common.Utility.RMB
             }
             catch (Exception ex)
             {
-                throw new RmbException("转换失败!", ex);
+                throw new RmbException("转化为中文汉字大写失败!", ex);
             }
         }
     }
