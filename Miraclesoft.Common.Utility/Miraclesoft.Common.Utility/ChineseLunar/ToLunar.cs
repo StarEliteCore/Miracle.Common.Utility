@@ -12,7 +12,7 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
     /// <summary>
     /// 公历转农历类(1700年-3100年)这个时间应该够用好几代人了.
     /// </summary>
-    public static class Lunar
+    public static class ToLunar
     {
         //将月份第十三位规定为闰月大小
         private static int First_Year = -1;
@@ -22,14 +22,6 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
         /// 农历年
         /// </summary>
         private static string _Year = "";
-        /// <summary>
-        /// 农历月
-        /// </summary>
-        private static string _Month = "";
-        /// <summary>
-        /// 农历天
-        /// </summary>
-        private static string _Day = "";
         /// <summary>
         /// 获取特定日期农历年份,若是未调用GetData传入特定日期,则返回当前日期的农历年份
         /// </summary>
@@ -41,12 +33,16 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
                     return _Year;
                 else
                 {
-                    GetDate(DateTime.Now);
+                    Init(DateTime.Now);
                     return _Year;
                 }
             }
             private set => _Year = value;
         }
+        /// <summary>
+        /// 农历月
+        /// </summary>
+        private static string _Month = "";
         /// <summary>
         /// 获取特定日期农历月份,若是未调用GetData传入特定日期,则返回当前日期的农历月份
         /// </summary>
@@ -58,12 +54,16 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
                     return _Month;
                 else
                 {
-                    GetDate(DateTime.Now);
+                    Init(DateTime.Now);
                     return _Month;
                 }
             }
             private set => _Month = value;
         }
+        /// <summary>
+        /// 农历天
+        /// </summary>
+        private static string _Day = "";
         /// <summary>
         /// 获取特定日期农历天,若是未调用GetData传入特定日期,则返回当前日期的农历天
         /// </summary>
@@ -75,11 +75,82 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
                     return _Day;
                 else
                 {
-                    GetDate(DateTime.Now);
+                    Init(DateTime.Now);
                     return _Day;
                 }
             }
             private set => _Day = value;
+        }
+        /// <summary>
+        /// 农历日期
+        /// </summary>
+        private static string _ChineseLunar = "";
+        /// <summary>
+        /// 获取特定日期农历天,若是未调用GetData传入特定日期,则返回当前日期的农历天
+        /// </summary>
+        public static string ChineseLunar
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(_ChineseLunar.Trim()))
+                    return _ChineseLunar;
+                else
+                {
+                    Init(DateTime.Now);
+                    return _ChineseLunar;
+                }
+            }
+            private set => _ChineseLunar = value;
+        }
+
+        /// <summary>
+        /// 传入的公历日期
+        /// </summary>
+        private static DateTime _date;
+
+        /// <summary>
+        /// 传入的公历日期
+        /// </summary>
+        private static DateTime GetInDate()
+        {
+            if (_date == null)
+                return DateTime.Now;
+            return _date;
+        }
+        /// <summary>
+        /// 传入的公历日期
+        /// </summary>
+        private static void SetInDate(DateTime value) => _date = value;
+
+        /// <summary>
+        /// 对初始化日期偏移天数,对当前日期进行天数增加,正数为加,负数为减.注意:该操作会导致初始化使用的日期发生变化,若要使用原有日期,请重新初始化
+        /// </summary>
+        /// <param name="days">偏移天数</param>
+        /// <returns>偏移后的农历日期</returns>
+        public static string AddDay(double days)
+        {
+            Init(GetInDate().AddDays(days));
+            return ChineseLunar;
+        }
+        /// <summary>
+        /// 对初始化日期偏移月份,对当前日期进行月份增加,正数为加,负数为减.注意:该操作会导致初始化使用的日期发生变化,若要使用原有日期,请重新初始化
+        /// </summary>
+        /// <param name="months">偏移月份</param>
+        /// <returns>偏移后的农历日期</returns>
+        public static string AddMonth(int months)
+        {
+            Init(GetInDate().AddMonths(months));
+            return ChineseLunar;
+        }
+        /// <summary>
+        /// 对初始化日期偏移年份,对当前日期进行年份增加,正数为加,负数为减.注意:该操作会导致初始化使用的日期发生变化,若要使用原有日期,请重新初始化
+        /// </summary>
+        /// <param name="months">偏移年份</param>
+        /// <returns>偏移后的农历日期</returns>
+        public static string AddYear(int years)
+        {
+            Init(GetInDate().AddYears(years));
+            return ChineseLunar;
         }
 
         /// <summary>
@@ -94,6 +165,46 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
             First_Year = int.Parse(year);
             Last_Year = int.Parse(lastYearStr);
             return dataTop;
+        }
+
+        /// <summary>
+        /// 公历日期转农历日期,公历日期合法性经过检查. 推荐的调用方法
+        /// </summary>
+        /// <param name="date">公历日期对象</param>
+        /// <exception cref="Exception"></exception>
+        /// <returns>农历日期</returns>
+        public static void Init(string date)
+        {
+            var dateArray = Judge(date);
+            SetInDate(new DateTime(dateArray[0], dateArray[1], dateArray[2]));
+            if (dateArray == null)
+                throw new Exception("-输入的日期不合法-");
+            if (!Judge(dateArray))
+                throw new Exception("-输入的日期不合法-");
+            var year = dateArray[0];
+            if (year < First_Year || year > Last_Year)
+                throw new Exception("-输入的日期年份超出范围,年份必须在" + First_Year + "与" + Last_Year + "之间-");
+            ChineseLunar = Cast(Cast(dateArray));
+        }
+
+        /// <summary>
+        /// 公历日期转农历日期,公历日期合法性经过检查. 推荐的调用方法
+        /// </summary>
+        /// <param name="date">公历日期对象</param>
+        /// <exception cref="Exception"></exception>
+        /// <returns>农历日期</returns>
+        public static void Init(DateTime date)
+        {
+            var dateArray = Judge(date);
+            SetInDate(date);
+            if (dateArray == null)
+                throw new Exception("-输入的日期不合法-");
+            if (!Judge(dateArray))
+                throw new Exception("-输入的日期不合法-");
+            var year = dateArray[0];
+            if (year < First_Year || year > Last_Year)
+                throw new Exception("-输入的日期年份超出范围,年份必须在" + First_Year + "与" + Last_Year + "之间-");
+            ChineseLunar = Cast(Cast(dateArray));
         }
 
         /// <summary>
@@ -499,52 +610,15 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
         {
             var sb = new StringBuilder("");
             var result = Cast2Array(date);
-            sb.Append(FormatYear(result[0]));            
+            sb.Append(FormatYear(result[0]));
             sb.Append("年");
-            sb.Append(FormatMonth(result[1]));            
+            sb.Append(FormatMonth(result[1]));
             sb.Append("月");
             sb.Append(FormatDay(result[2]));
             LunarYear = FormatYear(result[0]);
             LunarMonth = FormatMonth(result[1]);
             LunarDay = FormatDay(result[2]);
             return sb.ToString();
-        }
-
-        /// <summary>
-        /// 公历日期转农历日期,公历日期合法性经过检查. 推荐的调用方法
-        /// </summary>
-        /// <param name="date">公历日期</param>
-        /// <exception cref="Exception"></exception>
-        /// <returns>农历日期</returns>
-        public static string GetDate(string date)
-        {
-            var dateArray = Judge(date);
-            if (dateArray == null)
-                throw new Exception("-输入的日期不合法-");
-            if (!Judge(dateArray))
-                throw new Exception("-输入的日期不合法-");
-            var year = dateArray[0];
-            if (year < First_Year || year > Last_Year)
-                throw new Exception("-输入的日期年份超出范围,年份必须在" + First_Year + "与" + Last_Year + "之间-");
-            return Cast(Cast(dateArray));
-        }
-        /// <summary>
-        /// 公历日期转农历日期,公历日期合法性经过检查. 推荐的调用方法
-        /// </summary>
-        /// <param name="date">公历日期对象</param>
-        /// <exception cref="Exception"></exception>
-        /// <returns>农历日期</returns>
-        public static string GetDate(DateTime date)
-        {
-            var dateArray = Judge(date);
-            if (dateArray == null)
-                throw new Exception("-输入的日期不合法-");
-            if (!Judge(dateArray))
-                throw new Exception("-输入的日期不合法-");
-            var year = dateArray[0];
-            if (year < First_Year || year > Last_Year)
-                throw new Exception("-输入的日期年份超出范围,年份必须在" + First_Year + "与" + Last_Year + "之间-");
-            return Cast(Cast(dateArray));
         }
     }
 }
