@@ -176,7 +176,7 @@ namespace Miraclesoft.Common.Test
                 Age = 23
             };
             var zhangsanstr = XmlSerializerTool.ToXml(zhangsan);
-            WriteLine(zhangsanstr);
+            WriteLine(XmlSerializerTool.FormatXML(zhangsanstr));
             WriteLine("Binary序列化:");
             Studet lisi = new Studet
             {
@@ -186,7 +186,7 @@ namespace Miraclesoft.Common.Test
             };
             var lisistr = BinarySerializerTool.ToBinary(lisi);
             WriteLine(lisistr);
-            WriteLine($"Xml反序列化:");           
+            WriteLine($"Xml反序列化:");
             var zhangs = XmlSerializerTool.FromXml<Studet>(zhangsanstr);
             WriteLine(zhangs.ToCmd());
             WriteLine("Binary反序列化:");

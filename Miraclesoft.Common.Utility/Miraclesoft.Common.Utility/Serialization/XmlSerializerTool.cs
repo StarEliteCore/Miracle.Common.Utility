@@ -23,9 +23,9 @@ namespace Miraclesoft.Common.Utility.Serialization
             {
                 XmlSerializer serializer = new XmlSerializer(item.GetType());
                 StringBuilder sb = new StringBuilder();
-                using (XmlWriter writer = XmlWriter.Create(sb))
+                using (XmlWriter xmlwriter = XmlWriter.Create(sb))
                 {
-                    serializer.Serialize(writer, item);
+                    serializer.Serialize(xmlwriter, item);
                     return sb.ToString();
                 }
             }
@@ -54,6 +54,37 @@ namespace Miraclesoft.Common.Utility.Serialization
                 throw new SerializerException("XML反序列化异常!", ex);
             }
             #endregion
+        }
+
+        /// <summary>
+        /// 格式化XML字符串
+        /// </summary>
+        /// <param name="xmlstring">XML字符串</param>
+        public static string FormatXML(string xmlstring)
+        {
+            try
+            {
+                using (var sw = new StringWriter())
+                {
+                    var xmlTextWriter = new XmlTextWriter(sw)
+                    {
+                        Indentation = 2, // 首行缩进
+                        Formatting = Formatting.Indented
+                    };
+                    using (var writer = xmlTextWriter)
+                    {
+                        var doc = new XmlDocument();
+                        doc.LoadXml(xmlstring);
+                        doc.WriteContentTo(writer);
+                    }
+                    // 输出格式化后的XML字符串
+                    return sw.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
