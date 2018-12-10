@@ -23,18 +23,18 @@ namespace Miraclesoft.Common.Test
             WriteLine("RMB Test:");
             WriteLine("--------------------------------------------------------------------------------------------------------------------");
             WriteLine("数字转中文大写:");
-            var rmbtestnumber = 1247823234234312648.34m;
-            WriteLine($"原始文字:{rmbtestnumber}");
-            WriteLine(RmbTools.ConvertToChinese(rmbtestnumber));
+            var rmb_test_number = 1247823234234312648.34m;
+            WriteLine($"原始文字:{rmb_test_number}");
+            WriteLine(RmbTools.ConvertToChinese(rmb_test_number));
 
 #pragma warning disable  //这个地方会报方法过时,使用这个东西忽略警告.
             WriteLine(RmbTools.NumToChineseStr(12648.34m));//这种方法当数据过大存在溢出风险
 #pragma warning restore
 
             WriteLine("字符串转中文大写:");
-            var rmbteststring = "878343235234853234.56";
-            WriteLine($"原始文字:{rmbteststring}");
-            WriteLine(RmbTools.ConvertToChinese(rmbteststring));
+            var rmb_test_string = "878343235234853234.56";
+            WriteLine($"原始文字:{rmb_test_string}");
+            WriteLine(RmbTools.ConvertToChinese(rmb_test_string));
             try
             {
                 WriteLine("异常:");
