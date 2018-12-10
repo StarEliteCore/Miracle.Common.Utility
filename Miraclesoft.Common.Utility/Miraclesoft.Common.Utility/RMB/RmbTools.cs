@@ -49,10 +49,10 @@ namespace Miraclesoft.Common.Utility.RMB
         }
 
         /// <summary>
-        /// 数字转化为中文大写
+        /// 数字转化为中文大写,当数据过大存在溢出风险,推荐使用ConvertToChinese()
         /// </summary>
-        /// <param name="Num"></param>
-        /// <returns></returns>
+        /// <param name="Num">金额</param>
+        /// <returns>返回大写形式</returns>
         [Obsolete]
         public static string NumToChineseStr(decimal Num)
         {

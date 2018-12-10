@@ -26,6 +26,7 @@ namespace Miraclesoft.Common.Test
             var rmbtestnumber = 1247823234234312648.34m;
             WriteLine($"原始文字:{rmbtestnumber}");
             WriteLine(RmbTools.ConvertToChinese(rmbtestnumber));
+            WriteLine(RmbTools.NumToChineseStr(12648.34m));//这种方法当数据过大存在溢出风险
             WriteLine("字符串转中文大写:");
             var rmbteststring = "878343235234853234.56";
             WriteLine($"原始文字:{rmbteststring}");
