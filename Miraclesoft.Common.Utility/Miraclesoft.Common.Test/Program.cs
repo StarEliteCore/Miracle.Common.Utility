@@ -37,8 +37,12 @@ namespace Miraclesoft.Common.Test
             #endregion
 
 
-
-            Console.ReadKey();
+            try
+            {
+                //使用VSCode调试代码的时候ReadKey会抛出异常
+                Console.ReadKey();
+            }
+            catch { }
         }
     }
 }
