@@ -194,7 +194,6 @@ namespace Miraclesoft.Common.Test
             WriteLine(lis.ToCmd());
             WriteLine("--------------------------------------------------------------------------------------------------------------------");
             WriteLine("SerializerTest Complete");
-            WriteLine("SerializerTest Complete");
             WriteLine();
         }
     }
