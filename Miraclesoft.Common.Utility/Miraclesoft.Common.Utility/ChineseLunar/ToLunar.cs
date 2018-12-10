@@ -23,7 +23,7 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
         /// </summary>
         private static string _Year = "";
         /// <summary>
-        /// 获取特定日期农历年份,若是未调用GetData传入特定日期,则返回当前日期的农历年份
+        /// 获取特定日期农历年份,若是未调用Init传入特定日期,则返回当前日期的农历年份
         /// </summary>
         public static string LunarYear
         {
@@ -44,7 +44,7 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
         /// </summary>
         private static string _Month = "";
         /// <summary>
-        /// 获取特定日期农历月份,若是未调用GetData传入特定日期,则返回当前日期的农历月份
+        /// 获取特定日期农历月份,若是未调用Init传入特定日期,则返回当前日期的农历月份
         /// </summary>
         public static string LunarMonth
         {
@@ -65,7 +65,7 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
         /// </summary>
         private static string _Day = "";
         /// <summary>
-        /// 获取特定日期农历天,若是未调用GetData传入特定日期,则返回当前日期的农历天
+        /// 获取特定日期农历天,若是未调用Init传入特定日期,则返回当前日期的农历天
         /// </summary>
         public static string LunarDay
         {
@@ -86,7 +86,7 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
         /// </summary>
         private static string _ChineseLunar = "";
         /// <summary>
-        /// 获取特定日期农历天,若是未调用GetData传入特定日期,则返回当前日期的农历天
+        /// 获取特定日期农历天,若是未调用Init传入特定日期,则返回当前日期的农历天
         /// </summary>
         public static string ChineseLunar
         {
