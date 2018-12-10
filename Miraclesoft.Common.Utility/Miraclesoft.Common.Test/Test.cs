@@ -155,7 +155,7 @@ namespace Miraclesoft.Common.Test
         }
 
         [Serializable]
-        public class Studet
+        public class Student
         {
             public string Name { get; set; }
 
@@ -174,28 +174,28 @@ namespace Miraclesoft.Common.Test
             WriteLine("SerializerTest");
             WriteLine("--------------------------------------------------------------------------------------------------------------------");
             WriteLine($"Xml序列化:");
-            Studet zhangsan = new Studet
+            Student z_san = new Student
             {
                 Name = "张三",
                 Sex = "女",
                 Age = 23
             };
-            var zhangsanstr = XmlSerializerTool.ToXml(zhangsan);
-            WriteLine(XmlSerializerTool.FormatXML(zhangsanstr));
+            var z_san_str = XmlSerializerTool.ToXml(z_san);
+            WriteLine(XmlSerializerTool.FormatXML(z_san_str));
             WriteLine("Binary序列化:");
-            Studet lisi = new Studet
+            Student li_si = new Student
             {
                 Name = "李四",
                 Sex = "男",
                 Age = 25
             };
-            var lisistr = BinarySerializerTool.ToBinary(lisi);
-            WriteLine(lisistr);
+            var li_si_str = BinarySerializerTool.ToBinary(li_si);
+            WriteLine(li_si_str);
             WriteLine($"Xml反序列化:");
-            var zhangs = XmlSerializerTool.FromXml<Studet>(zhangsanstr);
-            WriteLine(zhangs.ToCmd());
+            var z_s = XmlSerializerTool.FromXml<Student>(z_san_str);
+            WriteLine(z_s.ToCmd());
             WriteLine("Binary反序列化:");
-            var lis = BinarySerializerTool.FromBinary<Studet>(lisistr);
+            var lis = BinarySerializerTool.FromBinary<Student>(li_si_str);
             WriteLine(lis.ToCmd());
             WriteLine("--------------------------------------------------------------------------------------------------------------------");
             WriteLine("SerializerTest Complete");
