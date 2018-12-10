@@ -21,9 +21,9 @@ namespace Miraclesoft.Common.Utility.Serialization
         {
             try
             {
-                XmlSerializer serializer = new XmlSerializer(item.GetType());
-                StringBuilder sb = new StringBuilder();
-                using (XmlWriter xmlwriter = XmlWriter.Create(sb))
+                var serializer = new XmlSerializer(item.GetType());
+                var sb = new StringBuilder();
+                using (var xmlwriter = XmlWriter.Create(sb))
                 {
                     serializer.Serialize(xmlwriter, item);
                     return sb.ToString();
@@ -43,8 +43,8 @@ namespace Miraclesoft.Common.Utility.Serialization
         {
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(T));
-                using (XmlReader reader = new XmlTextReader(new StringReader(str)))
+                var serializer = new XmlSerializer(typeof(T));
+                using (var reader = new XmlTextReader(new StringReader(str)))
                 {
                     return (T)serializer.Deserialize(reader);
                 }
@@ -53,7 +53,6 @@ namespace Miraclesoft.Common.Utility.Serialization
             {
                 throw new SerializerException("XML反序列化异常!", ex);
             }
-            #endregion
         }
 
         /// <summary>
@@ -86,5 +85,6 @@ namespace Miraclesoft.Common.Utility.Serialization
                 throw ex;
             }
         }
+        #endregion
     }
 }
