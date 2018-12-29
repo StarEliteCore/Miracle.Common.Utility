@@ -261,18 +261,27 @@ namespace Miraclesoft.Common.Test
             WriteLine("字符串插入指定分隔符,隔多少个字符插入分隔符.测试字符串为:'u卡萨丁宫颈癌是独立国家哈桑领导讲话稿按时鉴定会gals的机会格拉斯的结果'");
             WriteLine("每隔4个字符插入一个逗号,输出结果为:{0}", "u卡萨丁宫颈癌是独立国家哈桑领导讲话稿按时鉴定会gals的机会格拉斯的结果".Spacing(",", 4));
             WriteLine("对字符串进行加密.测试字符串:'Microsoft love Linux'");
-            string encryptstr = "Microsoft love Linux".Encrypt("Linux doesn't love Microsoft");
+            string encryptstr = "Microsoft love Linux".DESEncrypt("Linux doesn't love Microsoft");
             WriteLine("密匙为:'Linux doesn't love Microsoft'加密结果:{0}", encryptstr);
-            WriteLine("密匙为:'Linux doesn't love Microsoft'解密结果:{0}", encryptstr.Decrypt("Linux doesn't love Microsoft"));
+            //WriteLine("大佬的加密算法:{0}", "Microsoft love Linux".Des("Linux doesn't love Microsoft", "Linux doesn't love Microsoft"));
+            WriteLine("密匙为:'Linux doesn't love Microsoft'解密结果:{0}", encryptstr.DESDecrypt("Linux doesn't love Microsoft"));
             WriteLine("当密匙错误的时候的情况:");
             try
             {
-                encryptstr.Decrypt("Linux love Microsoft");
+                encryptstr.DESDecrypt("Linux love Microsoft");
             }
             catch(Exception ex)
             {
                 WriteLine(ex.ToString());
             }
+            WriteLine("测试将使用BitConverter转化的字节数组重新转为字节数组,所使用的字符串为上边加密后的字符串");
+            byte[] bytes = encryptstr.StringToBit();
+            for (var i = 0; i < bytes.Length;i++)
+            {
+                WriteLine($"第{i}个字节数,其值为:{bytes[i].ToString()}");
+            }
+            WriteLine("测试对字符串进行不可逆DES加密输出结果,测试字符串为:'Microsoft love Linux',输出结果如下:");
+            WriteLine("Microsoft love Linux".IrreversibleEncrypt());
             WriteLine("--------------------------------------------------------------------------------------------------------------------");
             WriteLine("StringExtensionTest Complete");
             WriteLine();

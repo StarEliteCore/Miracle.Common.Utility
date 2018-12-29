@@ -362,31 +362,40 @@ namespace Miraclesoft.Common.Utility.String
         }
 
         /// <summary>
-        /// 对字符串进行加密
+        /// 将使用BitConverter转化的字节数组重新转为字节数组
+        /// </summary>
+        /// <param name="bitstring">字符串,如:"96-F8-79-F4-18-37-D0-BF-B3-15-BE-A5-77-7F-7D-9E-59"</param>
+        /// <returns></returns>
+        public static byte[] StringToBit(this string bitstring)
+        {
+            string[] values = bitstring.Split("-");
+            var inBytes = new byte[values.Length];
+            for (var i = 0; i < values.Length; i++)
+            {
+                inBytes[i] = (byte)Convert.ToInt32(values[i], 16);
+            }
+            return inBytes;
+        }
+
+        /// <summary>
+        /// 对字符串进行DES加密
         /// </summary>
         /// <param name="value">字符串</param>
         /// <param name="vKey">密钥</param>
         /// <returns></returns>
-        public static string Encrypt(this string value, string vKey = "microsoft")
+        public static string DESEncrypt(this string value, string vKey = "microsoft",string ivVal="microsoft")
         {
             try
             {
-                var des = new DESCryptoServiceProvider();
-                byte[] Key = Encoding.ASCII.GetBytes(vKey.ToMD5());
-                byte[] IV = Encoding.ASCII.GetBytes(vKey.ToMD5());
-                var inputByteArray = Encoding.Default.GetBytes(value);
-                using (var ms = new MemoryStream())
+                var des = new DESCryptoServiceProvider()
                 {
-                    using (var cs = new CryptoStream(ms, des.CreateEncryptor(Key, IV), CryptoStreamMode.Write))
-                    {
-                        cs.Write(inputByteArray, 0, inputByteArray.Length);
-                        cs.FlushFinalBlock();
-                        var ret = new StringBuilder();
-                        foreach (var b in ms.ToArray())
-                            ret.AppendFormat($"{b:X2}");
-                        return ret.ToString();
-                    }
-                }
+                    Key = Encoding.ASCII.GetBytes(vKey.ToMD5().Substring(0, 8)),
+                    IV = Encoding.ASCII.GetBytes(ivVal.ToMD5().Substring(0, 8))
+                };
+                var inputByteArray = Encoding.Default.GetBytes(value);
+                var desencrypt = des.CreateEncryptor();
+                byte[] result = desencrypt.TransformFinalBlock(inputByteArray, 0, inputByteArray.Length);
+                return BitConverter.ToString(result);
             }
             catch (Exception ex)
             {
@@ -395,35 +404,63 @@ namespace Miraclesoft.Common.Utility.String
         }
 
         /// <summary>
-        /// 对加密字符串进行解密
+        /// 对加密字符串进行DES解密
         /// </summary>
         /// <param name="value">被加密的字符串</param>
         /// <param name="vKey">密钥</param>
         /// <returns></returns>
-        public static string Decrypt(this string value, string vKey = "microsoft")
+        public static string DESDecrypt(this string value, string vKey = "microsoft",string ivVal = "microsoft")
         {
             try
             {
-                var des = new DESCryptoServiceProvider();
-                byte[] Key = Encoding.ASCII.GetBytes(vKey.ToMD5());
-                byte[] IV = Encoding.ASCII.GetBytes(vKey.ToMD5());
-                var len = value.Length / 2;
-                var inputByteArray = new byte[len];
-                for (var i = 0; i < len; i++)
-                    inputByteArray[i] = (byte)Convert.ToInt32(value.Substring(i * 2, 2), 16);
-                using (var ms = new MemoryStream())
+                var des = new DESCryptoServiceProvider()
                 {
-                    using (var cs = new CryptoStream(ms, des.CreateDecryptor(Key, IV), CryptoStreamMode.Write))
-                    {
-                        cs.Write(inputByteArray, 0, inputByteArray.Length);
-                        cs.FlushFinalBlock();
-                        return Encoding.Default.GetString(ms.ToArray());
-                    }
+                    Key = Encoding.ASCII.GetBytes(vKey.ToMD5().Substring(0, 8)),
+                    IV = Encoding.ASCII.GetBytes(ivVal.ToMD5().Substring(0, 8))
+                };
+                string[] values = value.Split("-");
+                var inBytes = new byte[values.Length];
+                for (var i = 0; i < values.Length; i++)
+                {
+                    inBytes[i] = (byte)Convert.ToInt32(values[i], 16);
                 }
+                var desdecrypt = des.CreateDecryptor();
+                byte[] outBlock = desdecrypt.TransformFinalBlock(inBytes, 0, inBytes.Length);
+                return Encoding.Default.GetString(outBlock);
             }
             catch (Exception ex)
             {
                 throw new Exception("密码错误或其他错误", ex);
+            }
+        }
+
+        /// <summary>
+        /// 超级警告.对字符串进行不可逆DES加密,该加密算法的结果和GUID一样,每一次都不相同.针对制作恶意加密程序可以使用,输出的密码长度为32位MD5码,用解密软件估计也得跑很久,何况每个文件的密码都不一致..
+        /// </summary>
+        /// <param name="value">字符串</param>
+        /// <returns></returns>
+        public static string IrreversibleEncrypt(this string value)
+        {
+            try
+            {
+                var key = Guid.NewGuid().ToString("N").ToUpper();
+                var ivVal = Guid.NewGuid().ToString("N").ToUpper();
+                Random rd = new Random();
+                var keystart = rd.Next(key.Length - 8);
+                var ivstart = rd.Next(ivVal.Length - 8);
+                var des = new DESCryptoServiceProvider()
+                {
+                    Key = Encoding.ASCII.GetBytes(key.Substring(keystart, 8)),
+                    IV = Encoding.ASCII.GetBytes(ivVal.Substring(ivstart, 8))
+                };
+                var inputByteArray = Encoding.Default.GetBytes(value);
+                var desencrypt = des.CreateEncryptor();
+                byte[] result = desencrypt.TransformFinalBlock(inputByteArray, 0, inputByteArray.Length);
+                return BitConverter.ToString(result).ToMD5().ToUpper();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("加密错误", ex);
             }
         }
     }
