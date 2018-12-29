@@ -36,6 +36,10 @@ namespace Miraclesoft.Common.Test
             test.SerializerTest();
             #endregion
 
+            #region 字符串扩展方法测试
+            test.StringExtensionTest();
+            #endregion
+
 
             try
             {

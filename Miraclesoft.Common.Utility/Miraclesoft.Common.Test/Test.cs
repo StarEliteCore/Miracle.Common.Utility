@@ -1,12 +1,14 @@
-﻿using System;
-using Miraclesoft.Common.Utility.RMB;
+﻿using Miraclesoft.Common.Utility.ChineseLunar;
 using Miraclesoft.Common.Utility.DateTimeStamp;
 using Miraclesoft.Common.Utility.Exceptions;
-using System.Text;
 using Miraclesoft.Common.Utility.PinYin;
-using Miraclesoft.Common.Utility.ChineseLunar;
+using Miraclesoft.Common.Utility.RMB;
 using Miraclesoft.Common.Utility.Serialization;
+using Miraclesoft.Common.Utility.String;
+using System;
+using System.Text;
 using static System.Console;
+using Newtonsoft.Json;
 
 namespace Miraclesoft.Common.Test
 {
@@ -199,6 +201,80 @@ namespace Miraclesoft.Common.Test
             WriteLine(lis.ToCmd());
             WriteLine("--------------------------------------------------------------------------------------------------------------------");
             WriteLine("SerializerTest Complete");
+            WriteLine();
+        }
+
+        /// <summary>
+        /// StringExtension测试
+        /// </summary>
+        public void StringExtensionTest()
+        {
+            WriteLine();
+            WriteLine("StringExtensionTest");
+            WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            WriteLine("将指定字符串,按照串联的方式重复一定次数.测试值:test");
+            WriteLine("test".ReplicateString(4));
+            WriteLine("将指定字符,按照串联的方式重复一定次数.测试值:t");
+            WriteLine("t".ReplicateString(12));
+            WriteLine("使用加密服务提供程序(CSP)计算输入数据的MD5哈希值.测试值:microsoft");
+            WriteLine("microsoft".ToMD5());
+            WriteLine("使用加密服务提供程序(CSP)计算输入数据的SHA1哈希值.测试值:microsoft");
+            WriteLine("microsoft".ToSHA1());
+            DateTime time = "2019-01-01".ToDateTime();
+            WriteLine(time.ToLongDateString());
+            WriteLine("字符串数组转换成字符串集合.测试数组:{'123sdf','dsgsdg','gf3rgt'}");
+            string[] vs = { "123sdf", "dsgsdg", "gf3rgt" };
+            WriteLine(vs.ToStringCollection().GetType().ToString());
+            WriteLine("以特定字符间隔的字符串转化为字符串集合.测试字符串:'dhgausdg,sudygfuasdg,3235sdg'");
+            WriteLine("输出转化后的字符串数量:{0}", "dhgausdg,sudygfuasdg,3235sdg".ToStringCollection(',').Count);
+            WriteLine("以特定字符间隔的字符串转化为字符串集合.测试字符串:'siuhgasidgh12sdgasdhafh12989878ajshgdasd12adgase'");
+            WriteLine("输出转化后的字符串数量:{0}", "siuhgasidgh12sdgasdhafh12989878ajshgdasd12adgase".ToStringCollection("12").Count);
+            WriteLine("Json反序列化,用于接收客户端Json后生成对应的对象");
+            Student z_san = new Student
+            {
+                Name = "张三",
+                Sex = "女",
+                Age = 23
+            };
+            string json = JsonConvert.SerializeObject(z_san);
+            Student student = json.JsonToObject<Student>();
+            student.ToString();
+            WriteLine("将字符串中的单词首字母大写,测试字符串:'ask结果,司空见惯test,game over'");
+            string str = "ask结果,司空见惯test,game over".ToTitleUpperCase();
+            WriteLine(str);
+            WriteLine("将字符串中的单词首字母小写.测试字符串:为上函数转化后的字符串");
+            WriteLine(str.ToTitleLowerCase());
+            WriteLine("将字符串值转换为整数:{0}", "123".ToInt());
+            WriteLine("将字符串转换为GUID:测试字符串:'936DA01F-9ABD-4d9d-80C7-02AF85C822A8',输出结果:{0}", "936DA01F-9ABD-4d9d-80C7-02AF85C822A8".ToGuid().GetType().ToString());
+            WriteLine("将字符串转换为GUID异常测试:测试字符串:'Microsoft'");
+            try
+            {
+                WriteLine("Microsoft".ToGuid());
+            }
+            catch(Exception ex)
+            {
+                WriteLine(ex.ToString());
+            }
+            string base64str = "Microsoft".StringToBase64();
+            WriteLine("将字符串转换成Base64字符串:测试字符串:'Microsoft',输出结果:{0}", base64str);
+            WriteLine("将Base64字符转成String:测试字符串:'{0}',输出结果:{1}", base64str, base64str.Base64ToString());
+            WriteLine("字符串插入指定分隔符,隔多少个字符插入分隔符.测试字符串为:'u卡萨丁宫颈癌是独立国家哈桑领导讲话稿按时鉴定会gals的机会格拉斯的结果'");
+            WriteLine("每隔4个字符插入一个逗号,输出结果为:{0}", "u卡萨丁宫颈癌是独立国家哈桑领导讲话稿按时鉴定会gals的机会格拉斯的结果".Spacing(",", 4));
+            WriteLine("对字符串进行加密.测试字符串:'Microsoft love Linux'");
+            string encryptstr = "Microsoft love Linux".Encrypt("Linux doesn't love Microsoft");
+            WriteLine("密匙为:'Linux doesn't love Microsoft'加密结果:{0}", encryptstr);
+            WriteLine("密匙为:'Linux doesn't love Microsoft'解密结果:{0}", encryptstr.Decrypt("Linux doesn't love Microsoft"));
+            WriteLine("当密匙错误的时候的情况:");
+            try
+            {
+                encryptstr.Decrypt("Linux love Microsoft");
+            }
+            catch(Exception ex)
+            {
+                WriteLine(ex.ToString());
+            }
+            WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            WriteLine("StringExtensionTest Complete");
             WriteLine();
         }
     }
