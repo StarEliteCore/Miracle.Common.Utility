@@ -1,11 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28315.86
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miraclesoft.Common.Utility", "Miraclesoft.Common.Utility\Miraclesoft.Common.Utility.csproj", "{DF12411F-FD7F-4535-80D5-70A1231F6D4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miraclesoft.Common.Test", "Miraclesoft.Common.Test\Miraclesoft.Common.Test.csproj", "{D6D62C79-2665-499A-9FF5-B10C07550844}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miraclesoft.Common.Test", "Miraclesoft.Common.Test\Miraclesoft.Common.Test.csproj", "{D6D62C79-2665-499A-9FF5-B10C07550844}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miraclesoft.Common.Utility.ChineseLunar", "Miraclesoft.Common.Utility.ChineseLunar\Miraclesoft.Common.Utility.ChineseLunar.csproj", "{F674BBBA-F96F-4086-A01D-26BDEACCCD22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miraclesoft.Common.Utility.DateTimeStamp", "Miraclesoft.Common.Utility.DateTimeStamp\Miraclesoft.Common.Utility.DateTimeStamp.csproj", "{AB48FB5A-2258-495D-AE5C-4DA4F45B715F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miraclesoft.Common.Utility.PinYin", "Miraclesoft.Common.Utility.PinYin\Miraclesoft.Common.Utility.PinYin.csproj", "{9729FF9E-82F2-49A5-8657-94479B81D84E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miraclesoft.Common.Utility.RMB", "Miraclesoft.Common.Utility.RMB\Miraclesoft.Common.Utility.RMB.csproj", "{094B145B-0DCC-4FC1-ACBA-6B27431C2074}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miraclesoft.Common.Utility.Serialization", "Miraclesoft.Common.Utility.Serialization\Miraclesoft.Common.Utility.Serialization.csproj", "{1A4C8651-F8A2-48CE-B494-5D961B61024D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miraclesoft.Common.Utility.String", "Miraclesoft.Common.Utility.String\Miraclesoft.Common.Utility.String.csproj", "{5C301531-9A39-40A9-9C9A-707A057798BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +23,34 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DF12411F-FD7F-4535-80D5-70A1231F6D4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF12411F-FD7F-4535-80D5-70A1231F6D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF12411F-FD7F-4535-80D5-70A1231F6D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF12411F-FD7F-4535-80D5-70A1231F6D4D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D6D62C79-2665-499A-9FF5-B10C07550844}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D6D62C79-2665-499A-9FF5-B10C07550844}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6D62C79-2665-499A-9FF5-B10C07550844}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6D62C79-2665-499A-9FF5-B10C07550844}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F674BBBA-F96F-4086-A01D-26BDEACCCD22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F674BBBA-F96F-4086-A01D-26BDEACCCD22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F674BBBA-F96F-4086-A01D-26BDEACCCD22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F674BBBA-F96F-4086-A01D-26BDEACCCD22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB48FB5A-2258-495D-AE5C-4DA4F45B715F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB48FB5A-2258-495D-AE5C-4DA4F45B715F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB48FB5A-2258-495D-AE5C-4DA4F45B715F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB48FB5A-2258-495D-AE5C-4DA4F45B715F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9729FF9E-82F2-49A5-8657-94479B81D84E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9729FF9E-82F2-49A5-8657-94479B81D84E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9729FF9E-82F2-49A5-8657-94479B81D84E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9729FF9E-82F2-49A5-8657-94479B81D84E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{094B145B-0DCC-4FC1-ACBA-6B27431C2074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{094B145B-0DCC-4FC1-ACBA-6B27431C2074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{094B145B-0DCC-4FC1-ACBA-6B27431C2074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{094B145B-0DCC-4FC1-ACBA-6B27431C2074}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A4C8651-F8A2-48CE-B494-5D961B61024D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A4C8651-F8A2-48CE-B494-5D961B61024D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A4C8651-F8A2-48CE-B494-5D961B61024D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A4C8651-F8A2-48CE-B494-5D961B61024D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C301531-9A39-40A9-9C9A-707A057798BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C301531-9A39-40A9-9C9A-707A057798BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C301531-9A39-40A9-9C9A-707A057798BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C301531-9A39-40A9-9C9A-707A057798BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
