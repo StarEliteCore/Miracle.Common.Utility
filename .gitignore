@@ -35,3 +35,5 @@ _Pvt_Extensions
 /Miraclesoft.Common.Utility/Miraclesoft.Common.Utility/obj
 /.vs
 /.vscode
+/**/**/bin
+/**/**/obj
