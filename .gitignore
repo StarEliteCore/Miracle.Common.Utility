@@ -28,12 +28,7 @@ _Pvt_Extensions
 *.dll
 *.pdb
 *.txt
-/Miraclesoft.Common.Utility/.vs
-/Miraclesoft.Common.Utility/Miraclesoft.Common.Test/bin
-/Miraclesoft.Common.Utility/Miraclesoft.Common.Test/obj
-/Miraclesoft.Common.Utility/Miraclesoft.Common.Utility/bin
-/Miraclesoft.Common.Utility/Miraclesoft.Common.Utility/obj
-/.vs
+/**/.vs
 /.vscode
 /**/**/bin
 /**/**/obj
