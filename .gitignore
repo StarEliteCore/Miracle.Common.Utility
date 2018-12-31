@@ -28,6 +28,7 @@ _Pvt_Extensions
 *.dll
 *.pdb
 *.txt
+*.cache
 /**/.vs
 /.vscode
 /**/**/bin
