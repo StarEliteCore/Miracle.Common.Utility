@@ -10,6 +10,7 @@
     <ProjectReference Include="..\Miraclesoft.Common.Utility.DateTimeStamp\Miraclesoft.Common.Utility.DateTimeStamp.csproj" />
     <ProjectReference Include="..\Miraclesoft.Common.Utility.PinYin\Miraclesoft.Common.Utility.PinYin.csproj" />
     <ProjectReference Include="..\Miraclesoft.Common.Utility.RMB\Miraclesoft.Common.Utility.RMB.csproj" />
+    <ProjectReference Include="..\Miraclesoft.Common.Utility.Security\Miraclesoft.Common.Utility.Security.csproj" />
     <ProjectReference Include="..\Miraclesoft.Common.Utility.Serialization\Miraclesoft.Common.Utility.Serialization.csproj" />
     <ProjectReference Include="..\Miraclesoft.Common.Utility.String\Miraclesoft.Common.Utility.String.csproj" />
   </ItemGroup>

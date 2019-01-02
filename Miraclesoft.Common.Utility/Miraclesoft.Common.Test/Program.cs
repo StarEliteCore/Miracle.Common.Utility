@@ -40,6 +40,9 @@ namespace Miraclesoft.Common.Test
             test.StringExtensionTest();
             #endregion
 
+            #region 字符串加密扩展测试
+            test.SecurityExtensionTest();
+            #endregion
 
             try
             {

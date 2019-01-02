@@ -4,6 +4,7 @@ using Miraclesoft.Common.Utility.PinYin;
 using Miraclesoft.Common.Utility.RMB;
 using Miraclesoft.Common.Utility.Serialization;
 using Miraclesoft.Common.Utility.String;
+using Miraclesoft.Common.Utility.Security;
 using Newtonsoft.Json;
 using System;
 using System.Text;
@@ -217,12 +218,6 @@ namespace Miraclesoft.Common.Test
             WriteLine("将指定字符,按照串联的方式重复一定次数.测试值:t");
             WriteLine("t".ReplicateString(3));
             WriteLine();
-            WriteLine("使用加密服务提供程序(CSP)计算输入数据的MD5哈希值.测试值:microsoft");
-            WriteLine("microsoft".ToMD5());
-            WriteLine();
-            WriteLine("使用加密服务提供程序(CSP)计算输入数据的SHA1哈希值.测试值:microsoft");
-            WriteLine("microsoft".ToSHA1());
-            WriteLine();
             DateTime time = "2019-01-01".ToDateTime();
             WriteLine(time.ToLongDateString());
             WriteLine();
@@ -276,35 +271,112 @@ namespace Miraclesoft.Common.Test
             WriteLine("字符串插入指定分隔符,隔多少个字符插入分隔符.测试字符串为:'u卡萨丁宫颈癌是独立国家哈桑领导讲话稿按时鉴定会gals的机会格拉斯的结果'");
             WriteLine("每隔4个字符插入一个逗号,输出结果为:{0}", "u卡萨丁宫颈癌是独立国家哈桑领导讲话稿按时鉴定会gals的机会格拉斯的结果".Spacing(",", 4));
             WriteLine();
-            WriteLine("对字符串进行加密.测试字符串:'Microsoft love Linux'");
+            WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            WriteLine("StringExtensionTest Complete");
+            WriteLine();
+        }
+
+        /// <summary>
+        /// 将字节数组按照{23,34,56}格式输出
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        private string FormateByte(byte[] value)
+        {
+            var str = "{";
+            for (var i = 0; i < value.Length; i++)
+            {
+                if (i < value.Length - 1)
+                {
+                    str += (value[i]);
+                    str += (", ");
+                }
+                else
+                    str += (value[i]);
+            }
+            str += ("}");
+            return str;
+        }
+
+        /// <summary>
+        /// 安全加密扩展
+        /// </summary>
+        public void SecurityExtensionTest()
+        {
+            WriteLine();
+            WriteLine("SecurityExtensionTest");
+            WriteLine("--------------------------------------------------------------------------------------------------------------------");
+            WriteLine("使用加密服务提供程序(CSP)计算输入数据的MD5哈希值.测试值:microsoft");
+            WriteLine("microsoft".ToMD5());
+            WriteLine();
+            WriteLine("使用加密服务提供程序(CSP)计算输入数据的SHA1哈希值.测试值:microsoft");
+            WriteLine("microsoft".ToSHA1());
+            WriteLine();
+            WriteLine("对字符串进行DES加密.测试字符串:'Microsoft love Linux'");
             string encryptstr = "Microsoft love Linux".DESEncrypt("Linux doesn't love Microsoft");
-            WriteLine("密匙为:'Linux doesn't love Microsoft'加密结果:{0}", encryptstr);
+            WriteLine("密匙为:'Linux doesn't love Microsoft'DES加密结果:{0}", encryptstr);
             WriteLine();
             //WriteLine("大佬的加密算法:{0}", "Microsoft love Linux".Des("Linux doesn't love Microsoft", "Linux doesn't love Microsoft"));
-            WriteLine("密匙为:'Linux doesn't love Microsoft'解密结果:{0}", encryptstr.DESDecrypt("Linux doesn't love Microsoft"));
+            WriteLine("密匙为:'Linux doesn't love Microsoft'DES解密结果:{0}", encryptstr.DESDecrypt("Linux doesn't love Microsoft"));
             WriteLine();
             WriteLine("当密匙错误的时候的情况:");
             try
             {
                 encryptstr.DESDecrypt("Linux love Microsoft");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 WriteLine(ex.ToString());
             }
             WriteLine();
             WriteLine("测试将使用BitConverter转化的字节数组重新转为字节数组,所使用的字符串为上边加密后的字符串");
             byte[] bytes = encryptstr.StringToBit();
-            for (var i = 0; i < bytes.Length;i++)
-            {
-                WriteLine($"第{i}个字节数,其值为:{bytes[i].ToString()}");
-            }
+            WriteLine(FormateByte(bytes));
             WriteLine();
             WriteLine("测试对字符串进行不可逆DES加密输出结果,测试字符串为:'Microsoft love Linux',输出结果如下:");
             WriteLine("Microsoft love Linux".IrreversibleEncrypt());
             WriteLine();
+            WriteLine("TripleDES 算法加密解密测试:");
+            WriteLine("对字符串进行加密,测试字符串为:Microsoft,密钥为:microsoft,加密后的内容:");
+            string tripstr = "Microsoft".TripleDESEncrypt("microsoft");
+            WriteLine(tripstr);
+            WriteLine();
+            WriteLine("对加密后的字符串进行解密:");
+            WriteLine(tripstr.TripleDESDecrypt("microsoft"));
+            WriteLine();
+            WriteLine("按照指定字符集输出解密后的字符串:UTF-8");
+            WriteLine(tripstr.TripleDESDecrypt(Encoding.UTF8, "microsoft"));
+            WriteLine();
+            WriteLine("对字节数组进行加密:测试子节数组为:'[23,34,156,78]',密码为:Microsoft");
+            byte[] bty = { 23, 34, 156, 78 };
+            var value = bty.TripleDESEncrypt("Microsoft");
+            WriteLine(FormateByte(value));
+            WriteLine();
+            WriteLine("对上述加密后的字节数组进行解密,密码为:Microsoft");
+            var back = value.TripleDESDecrypt("Microsoft");
+            WriteLine(FormateByte(back));
+            WriteLine();
+            WriteLine("密码错误测试:");
+            try
+            {
+                tripstr.TripleDESDecrypt("TEST");
+            }
+            catch(Exception ex)
+            {
+                WriteLine(ex.ToString());
+            }
+            WriteLine();
+            try
+            {
+                value.TripleDESDecrypt("TEST");
+            }
+            catch(Exception ex)
+            {
+                WriteLine(ex.ToString());
+            }
+            WriteLine();
             WriteLine("--------------------------------------------------------------------------------------------------------------------");
-            WriteLine("StringExtensionTest Complete");
+            WriteLine("SecurityExtensionTest Complete");
             WriteLine();
         }
     }
