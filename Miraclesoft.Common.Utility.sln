@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miraclesoft.Common.Utility.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miraclesoft.Common.Utility.String", "Miraclesoft.Common.Utility.String\Miraclesoft.Common.Utility.String.csproj", "{5C301531-9A39-40A9-9C9A-707A057798BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miraclesoft.Common.Utility.Security", "Miraclesoft.Common.Utility.Security\Miraclesoft.Common.Utility.Security.csproj", "{DC2041DB-38DC-4818-96FF-EE22CC5A8739}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miraclesoft.Common.Utility.Security", "Miraclesoft.Common.Utility.Security\Miraclesoft.Common.Utility.Security.csproj", "{DC2041DB-38DC-4818-96FF-EE22CC5A8739}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miraclesoft.Common.Utility.Array", "Miraclesoft.Common.Utility.Array\Miraclesoft.Common.Utility.Array.csproj", "{D7E4319E-19B9-4457-BDFA-68F332D2A6BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{DC2041DB-38DC-4818-96FF-EE22CC5A8739}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC2041DB-38DC-4818-96FF-EE22CC5A8739}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC2041DB-38DC-4818-96FF-EE22CC5A8739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7E4319E-19B9-4457-BDFA-68F332D2A6BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7E4319E-19B9-4457-BDFA-68F332D2A6BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7E4319E-19B9-4457-BDFA-68F332D2A6BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7E4319E-19B9-4457-BDFA-68F332D2A6BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

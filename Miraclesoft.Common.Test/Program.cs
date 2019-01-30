@@ -44,6 +44,10 @@ namespace Miraclesoft.Common.Test
             test.SecurityExtensionTest();
             #endregion
 
+            #region 数组扩展函数测试
+            test.ArrayExtensionTest();
+            #endregion
+
             try
             {
                 //使用VSCode调试代码的时候ReadKey会抛出异常

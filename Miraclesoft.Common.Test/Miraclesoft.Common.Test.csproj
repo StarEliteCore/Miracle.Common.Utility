@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Miraclesoft.Common.Utility.Array\Miraclesoft.Common.Utility.Array.csproj" />
     <ProjectReference Include="..\Miraclesoft.Common.Utility.ChineseLunar\Miraclesoft.Common.Utility.ChineseLunar.csproj" />
     <ProjectReference Include="..\Miraclesoft.Common.Utility.DateTimeStamp\Miraclesoft.Common.Utility.DateTimeStamp.csproj" />
     <ProjectReference Include="..\Miraclesoft.Common.Utility.PinYin\Miraclesoft.Common.Utility.PinYin.csproj" />
