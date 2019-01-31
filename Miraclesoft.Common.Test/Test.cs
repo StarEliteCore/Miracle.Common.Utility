@@ -123,7 +123,7 @@ namespace Miraclesoft.Common.Test
             WriteLine();
             WriteColorText("PyToolsTest", ConsoleColor.Green);
             WriteColorText("--------------------------------------------------------------------------------------------------------------------", ConsoleColor.Yellow);
-            string[] maxims = { "事常与人违，123456789", @"骏马是跑出来的，?|\!@$%^&*()_+=-,./';:{}[]<>"};
+            string[] maxims = { "事常与人违，123456789", @"骏马是跑出来的，?|\!@$%^&*()_+=-,./';:{}[]<>" };
             string[] medicines = { "聚维酮碘溶液", "开塞露", "输血记录" };
             WriteLine("UTF8句子拼音：");
             foreach (var s in maxims)
@@ -135,7 +135,7 @@ namespace Miraclesoft.Common.Test
             }
             var GBK = Encoding.GetEncoding("GBK");
             WriteLine("GBK拼音简码：");
-            WriteColorText("不支持汉字使用自定义符号'%'替代测试:",ConsoleColor.DarkYellow);
+            WriteColorText("不支持汉字使用自定义符号'%'替代测试:", ConsoleColor.DarkYellow);
             Write("錒：\n简码：");
             WriteColorText($"{PyTools.GetInitials("錒", '%', GBK)}\n", ConsoleColor.Magenta);
             foreach (var m in medicines)
@@ -536,6 +536,17 @@ namespace Miraclesoft.Common.Test
             WriteColorText($"{FormateInt(testArray.SubArray(15, 10))}", ConsoleColor.Magenta);
             WriteLine("获取数组的子数组,取20到26.");
             WriteColorText($"{FormateInt(testArray.SubArray(20, 6))}", ConsoleColor.Magenta);
+            WriteLine("测试数组添加新元素,测试单个元素, 90 :");
+            testArray = testArray.Push(90);
+            WriteColorText($"{ FormateInt(testArray)}", ConsoleColor.Magenta);
+            WriteLine("测试数组添加新元素,测试多个元素, {90, 80, 70} :");
+            testArray = testArray.PushRange(new int[] { 90, 80, 70 });
+            WriteColorText($"{ FormateInt(testArray)}", ConsoleColor.Magenta);
+            WriteLine("测试数组删除最后一个元素:");
+            var temp = testArray.Pop();
+            testArray = temp.Item2;
+            WriteColorText($"{ FormateInt(testArray)}", ConsoleColor.Magenta);
+            WriteColorText($"删除元素为: { temp.Item1}", ConsoleColor.Red);
             WriteLine();
             WriteColorText($@"--------------------------------------------------------------------------------------------------------------------", ConsoleColor.Yellow);
             WriteColorText("ArrayExtensionTest Complete", ConsoleColor.Green);
