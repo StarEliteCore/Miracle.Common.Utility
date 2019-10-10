@@ -20,10 +20,8 @@ namespace Miraclesoft.Common.Utility.Security
                 return value;
             }
             MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-            byte[] byteValue = null;
-            byte[] byteHash = null;
-            byteValue = Encoding.UTF8.GetBytes(value);
-            byteHash = md5.ComputeHash(byteValue);
+            byte[] byteValue = Encoding.UTF8.GetBytes(value);
+            byte[] byteHash = md5.ComputeHash(byteValue);
             md5.Clear();
             string strTemp = "";
             for (int i = 0; i < byteHash.Length; i++)
