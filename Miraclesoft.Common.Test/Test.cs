@@ -123,8 +123,8 @@ namespace Miraclesoft.Common.Test
             WriteLine();
             WriteColorText("PyToolsTest", ConsoleColor.Green);
             WriteColorText("--------------------------------------------------------------------------------------------------------------------", ConsoleColor.Yellow);
-            string[] maxims = { "事常与人违，123456789", @"骏马是跑出来的，?|\!@$%^&*()_+=-,./';:{}[]<>" };
-            string[] medicines = { "聚维酮碘溶液", "开塞露", "输血记录" };
+            string[] maxims = { "事常与人违，123456789", @"骏马是跑出来的，?|\!@$%^&*()_+=-,./';:{}[]<>", "深圳" };
+            string[] medicines = { "聚维酮碘溶液", "开塞露", "输血记录", "深圳" };
             WriteLine("UTF8句子拼音：");
             foreach (var s in maxims)
             {
