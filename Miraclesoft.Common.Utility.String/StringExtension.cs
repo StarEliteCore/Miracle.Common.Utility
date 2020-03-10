@@ -514,5 +514,60 @@ namespace Miraclesoft.Common.Utility.String
             }
         }
         #endregion
+
+        #region 字符串反转
+        /// <summary>
+        /// 使用指针的方式反转字符串,该函数会修改原字符串.
+        /// </summary>
+        /// <param name="value">待反转字符串</param>
+        /// <returns>反转后的结果</returns>
+        public static unsafe string ReverseByPointer(this string value)
+        {
+            fixed (char* pText = value)
+            {
+                var pStart = pText;
+                var pEnd = pText + value.Length - 1;
+                //for (var i = original.Length / 2; i > 0; i--)
+                //{
+                //    var temp = *pStart;
+                //    *pStart++ = *pEnd;
+                //    *pEnd-- = temp;
+                //    ++forcount;
+                //}
+                while (pStart < pEnd)
+                {
+                    var temp = *pStart;
+                    *pStart++ = *pEnd;
+                    *pEnd-- = temp;
+                }
+                return value;
+            }
+        }
+        /// <summary>
+        /// 使用StringBuilder和String索引器的方式反转字符串,该函数不会修改原字符串
+        /// </summary>
+        /// <param name="value">待反转字符串</param>
+        /// <returns>反转后的结果</returns>
+        public static string ReverseByStringBuilder(this string value)
+        {
+            var sb = new StringBuilder(capacity: value.Length);
+            for (int i = value.Length; i > 0;)
+            {
+                sb.Append(value[--i]);
+            }
+            return sb.ToString();
+        }
+        /// <summary>
+        /// 使用Array.Reverse()的方式反转字符串,该函数不会修改原字符串
+        /// </summary>
+        /// <param name="value">待反转字符串</param>
+        /// <returns>反转后的结果</returns>
+        public static string ReverseByArray(this string value)
+        {
+            char[] arr = value.ToCharArray();
+            Array.Reverse(arr);
+            return new string(arr);
+        }
+        #endregion
     }
 }

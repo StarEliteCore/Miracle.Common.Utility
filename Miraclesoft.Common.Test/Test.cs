@@ -374,6 +374,16 @@ namespace Miraclesoft.Common.Test
             Write("www.qq.com的结果:");
             WriteColorText($"{"www.qq.com".QuickValidate(@"[\w]+(\.[\w]+)*@[\w]+(\.[\w])+")}", ConsoleColor.Magenta);
             WriteLine();
+            Write("指针方式反转字符串:中文汉字反转测试:");
+            WriteColorText($"{new string("中文汉字反转测试").ReverseByPointer()}", ConsoleColor.Magenta);
+            WriteLine();
+            // 由于使用指针反转后,会对内存数据进行修改,所以后边的函数再次使用相同的变量就会出现看起来没有反转一样,所以再反转一次
+            Write("StringBuilder反转字符串:中文汉字反转测试:");
+            WriteColorText($"{new string("中文汉字反转测试").ReverseByStringBuilder()}", ConsoleColor.Magenta);
+            WriteLine();
+            Write("ReverseByArray反转字符串:中文汉字反转测试:");
+            WriteColorText($"{new string("中文汉字反转测试").ReverseByArray()}", ConsoleColor.Magenta);
+            WriteLine();
             WriteColorText("--------------------------------------------------------------------------------------------------------------------", ConsoleColor.Yellow);
             WriteColorText("StringExtensionTest Complete", ConsoleColor.Green);
             WriteLine();
