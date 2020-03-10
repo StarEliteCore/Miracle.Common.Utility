@@ -322,11 +322,12 @@ namespace Miraclesoft.Common.Utility.ChineseLunar
             {
                 var pStart = pText;
                 var pEnd = pText + original.Length - 1;
-                //for (var i = original.Length / 2; i >= 0; i--)
+                //for (var i = original.Length / 2; i > 0; i--)
                 //{
                 //    var temp = *pStart;
                 //    *pStart++ = *pEnd;
                 //    *pEnd-- = temp;
+                //    ++forcount;
                 //}
                 while (pStart < pEnd)
                 {
