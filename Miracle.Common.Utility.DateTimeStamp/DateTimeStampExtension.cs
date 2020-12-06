@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Miraclesoft.Common.Utility.DateTimeStamp
+namespace Miracle.Common.Utility.DateTimeStamp
 {
     /// <summary>
     /// 时间戳相关扩展

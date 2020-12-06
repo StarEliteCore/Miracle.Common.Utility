@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 /// <summary>
 /// 异常
 /// </summary>
-namespace Miraclesoft.Common.Utility.RMB
+namespace Miracle.Common.Utility.RMB
 {
     /// <summary>
     /// 人民币异常类

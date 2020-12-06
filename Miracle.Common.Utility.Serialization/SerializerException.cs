@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Miraclesoft.Common.Utility.Serialization
+namespace Miracle.Common.Utility.Serialization
 {
     public class SerializerException : Exception
     {

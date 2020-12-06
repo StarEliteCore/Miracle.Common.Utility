@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Miraclesoft.Common.Utility.Array
+namespace Miracle.Common.Utility.Array
 {
     /// <summary>
     /// 数组扩展

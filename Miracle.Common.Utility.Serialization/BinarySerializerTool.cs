@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
-namespace Miraclesoft.Common.Utility.Serialization
+namespace Miracle.Common.Utility.Serialization
 {
     /// <summary>
     /// Binary序列化工具

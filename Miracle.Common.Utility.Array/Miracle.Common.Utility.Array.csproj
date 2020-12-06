@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <LangVersion>7.2</LangVersion>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>5.0.1</Version>
+    <Version>5.0.2</Version>
     <Authors>QQ(一般团队)</Authors>
     <Company>QQ(一般团队)</Company>
     <Product>Miracle.Common.Utility</Product>

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <LangVersion>7.2</LangVersion>
-    <Version>5.0.1</Version>
+    <Version>5.0.2</Version>
     <Product>Miracle.Common.Utility</Product>
     <Company>QQ(一般团队)</Company>
     <Authors>QQ(一般团队)</Authors>

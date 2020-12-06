@@ -4,7 +4,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace Miraclesoft.Common.Utility.Serialization
+namespace Miracle.Common.Utility.Serialization
 {
     /// <summary>
     /// XML序列化工具

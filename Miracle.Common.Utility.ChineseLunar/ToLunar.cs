@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Miraclesoft.Common.Utility.ChineseLunar
+namespace Miracle.Common.Utility.ChineseLunar
 {
     /**
       * 该Lib参考GitHub大神的Java项目所改.链接如下:

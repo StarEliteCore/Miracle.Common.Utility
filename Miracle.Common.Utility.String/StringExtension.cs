@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Miraclesoft.Common.Utility.String
+namespace Miracle.Common.Utility.String
 {
     /// <summary>
     /// 字符串String扩展

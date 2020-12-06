@@ -1,4 +1,4 @@
-﻿namespace Miraclesoft.Common.Utility.PinYin
+﻿namespace Miracle.Common.Utility.PinYin
 {
     internal class PyCode
     {

@@ -32,7 +32,7 @@
  */
 using System.Text;
 
-namespace Miraclesoft.Common.Utility.PinYin
+namespace Miracle.Common.Utility.PinYin
 {
     /// <summary>
     /// Public PinYin API

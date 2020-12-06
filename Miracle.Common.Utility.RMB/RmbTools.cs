@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 /// <summary>
 /// RMB
 /// </summary>
-namespace Miraclesoft.Common.Utility.RMB
+namespace Miracle.Common.Utility.RMB
 {
     /// <summary>
     /// 人民币工具类

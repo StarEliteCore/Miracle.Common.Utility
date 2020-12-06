@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Miraclesoft.Common.Utility.Security
+namespace Miracle.Common.Utility.Security
 {
     public static class SecurityExtension
     {

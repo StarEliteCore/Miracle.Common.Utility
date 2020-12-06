@@ -1,4 +1,4 @@
-﻿namespace Miraclesoft.Common.Utility.ChineseLunar
+﻿namespace Miracle.Common.Utility.ChineseLunar
 {
     internal static class ConstellationConfigs
     {
