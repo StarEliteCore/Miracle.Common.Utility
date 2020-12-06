@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miraclesoft.Common.Test", "Miraclesoft.Common.Test\Miraclesoft.Common.Test.csproj", "{D6D62C79-2665-499A-9FF5-B10C07550844}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miracle.Common.Test", "Miracle.Common.Test\Miracle.Common.Test.csproj", "{D6D62C79-2665-499A-9FF5-B10C07550844}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miraclesoft.Common.Utility.ChineseLunar", "Miraclesoft.Common.Utility.ChineseLunar\Miraclesoft.Common.Utility.ChineseLunar.csproj", "{F674BBBA-F96F-4086-A01D-26BDEACCCD22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miracle.Common.Utility.ChineseLunar", "Miracle.Common.Utility.ChineseLunar\Miracle.Common.Utility.ChineseLunar.csproj", "{F674BBBA-F96F-4086-A01D-26BDEACCCD22}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miraclesoft.Common.Utility.DateTimeStamp", "Miraclesoft.Common.Utility.DateTimeStamp\Miraclesoft.Common.Utility.DateTimeStamp.csproj", "{AB48FB5A-2258-495D-AE5C-4DA4F45B715F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miracle.Common.Utility.DateTimeStamp", "Miracle.Common.Utility.DateTimeStamp\Miracle.Common.Utility.DateTimeStamp.csproj", "{AB48FB5A-2258-495D-AE5C-4DA4F45B715F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miraclesoft.Common.Utility.PinYin", "Miraclesoft.Common.Utility.PinYin\Miraclesoft.Common.Utility.PinYin.csproj", "{9729FF9E-82F2-49A5-8657-94479B81D84E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miracle.Common.Utility.PinYin", "Miracle.Common.Utility.PinYin\Miracle.Common.Utility.PinYin.csproj", "{9729FF9E-82F2-49A5-8657-94479B81D84E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miraclesoft.Common.Utility.RMB", "Miraclesoft.Common.Utility.RMB\Miraclesoft.Common.Utility.RMB.csproj", "{094B145B-0DCC-4FC1-ACBA-6B27431C2074}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miracle.Common.Utility.RMB", "Miracle.Common.Utility.RMB\Miracle.Common.Utility.RMB.csproj", "{094B145B-0DCC-4FC1-ACBA-6B27431C2074}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miraclesoft.Common.Utility.Serialization", "Miraclesoft.Common.Utility.Serialization\Miraclesoft.Common.Utility.Serialization.csproj", "{1A4C8651-F8A2-48CE-B494-5D961B61024D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miracle.Common.Utility.Serialization", "Miracle.Common.Utility.Serialization\Miracle.Common.Utility.Serialization.csproj", "{1A4C8651-F8A2-48CE-B494-5D961B61024D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miraclesoft.Common.Utility.String", "Miraclesoft.Common.Utility.String\Miraclesoft.Common.Utility.String.csproj", "{5C301531-9A39-40A9-9C9A-707A057798BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miracle.Common.Utility.String", "Miracle.Common.Utility.String\Miracle.Common.Utility.String.csproj", "{5C301531-9A39-40A9-9C9A-707A057798BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miraclesoft.Common.Utility.Security", "Miraclesoft.Common.Utility.Security\Miraclesoft.Common.Utility.Security.csproj", "{DC2041DB-38DC-4818-96FF-EE22CC5A8739}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miracle.Common.Utility.Security", "Miracle.Common.Utility.Security\Miracle.Common.Utility.Security.csproj", "{DC2041DB-38DC-4818-96FF-EE22CC5A8739}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miraclesoft.Common.Utility.Array", "Miraclesoft.Common.Utility.Array\Miraclesoft.Common.Utility.Array.csproj", "{D7E4319E-19B9-4457-BDFA-68F332D2A6BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miracle.Common.Utility.Array", "Miracle.Common.Utility.Array\Miracle.Common.Utility.Array.csproj", "{D7E4319E-19B9-4457-BDFA-68F332D2A6BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
