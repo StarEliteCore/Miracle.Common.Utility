@@ -3,7 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <LangVersion>7.2</LangVersion>
-    <Version>5.0.0</Version>
+    <Version>5.0.1</Version>
+    <Authors>QQ(一般团队)</Authors>
+    <Product>Miracle.Common.Utility</Product>
+    <PackageProjectUrl>https://github.com/joesdu/Miracle.Common.Utility</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
