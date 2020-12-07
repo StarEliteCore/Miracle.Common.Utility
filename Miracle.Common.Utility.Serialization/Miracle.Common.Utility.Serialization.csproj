@@ -7,13 +7,11 @@
     <Authors>QQ(一般团队)</Authors>
     <Product>Miracle.Common.Utility</Product>
     <PackageProjectUrl></PackageProjectUrl>
-    <Version>5.0.3</Version>
-    <Description>序列化扩展,基于System.Runtime.Serialization.目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.
-使用方式参考源码Test项目.</Description>
-    <PackageReleaseNotes>序列化扩展,基于System.Runtime.Serialization.目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.
-使用方式参考源码Test项目.</PackageReleaseNotes>
+    <Version>5.0.3.100</Version>
+    <Description>序列化扩展,基于System.Runtime.Serialization.目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.使用方式参考源码Test项目.</Description>
+    <PackageReleaseNotes>序列化扩展,基于System.Runtime.Serialization.目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.使用方式参考源码Test项目.</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/joesdu/Miracle.Common.Utility</RepositoryUrl>
-    <RepositoryType>Public</RepositoryType>
+    <RepositoryType>GitHub</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 

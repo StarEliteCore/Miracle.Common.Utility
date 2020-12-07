@@ -4,18 +4,18 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <LangVersion>7.2</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Version>5.0.3</Version>
+    <Version>5.0.3.100</Version>
     <Company>QQ(一般团队)</Company>
     <Product>Miracle.Common.Utility</Product>
     <Authors>QQ(一般团队)</Authors>
     <PackageProjectUrl></PackageProjectUrl>
-    <Description>字符串扩展,目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.
-使用方式参考源码Test项目.</Description>
-    <PackageReleaseNotes>字符串扩展,目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.
-使用方式参考源码Test项目.</PackageReleaseNotes>
+    <Description>字符串扩展,目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.使用方式参考源码Test项目.</Description>
+    <PackageReleaseNotes>字符串扩展,目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.使用方式参考源码Test项目.</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/joesdu/Miracle.Common.Utility</RepositoryUrl>
-    <RepositoryType>Public</RepositoryType>
+    <RepositoryType>GitHub</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyVersion>5.0.3.100</AssemblyVersion>
+    <FileVersion>5.0.3.100</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

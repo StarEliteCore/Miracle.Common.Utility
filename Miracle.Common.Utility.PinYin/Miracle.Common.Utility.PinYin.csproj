@@ -3,17 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <LangVersion>7.2</LangVersion>
-    <Version>5.0.3</Version>
+    <Version>5.0.3.100</Version>
     <Product>Miracle.Common.Utility</Product>
     <Company>QQ(一般团队)</Company>
     <Authors>QQ(一般团队)</Authors>
     <PackageProjectUrl></PackageProjectUrl>
-    <Description>中国汉字拼音扩展.目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.
-使用方式参考源码Test项目.</Description>
-    <PackageReleaseNotes>中国汉字拼音扩展.目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.
-使用方式参考源码Test项目.</PackageReleaseNotes>
+    <Description>中国汉字拼音扩展.目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.使用方式参考源码Test项目.</Description>
+    <PackageReleaseNotes>中国汉字拼音扩展.目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.使用方式参考源码Test项目.</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/joesdu/Miracle.Common.Utility</RepositoryUrl>
-    <RepositoryType>Public</RepositoryType>
+    <RepositoryType>GitHub</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
