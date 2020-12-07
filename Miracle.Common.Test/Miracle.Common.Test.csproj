@@ -6,15 +6,23 @@
     <LangVersion>7.2</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\Miracle.Common.Utility.Array\Miracle.Common.Utility.Array.csproj" />
-    <ProjectReference Include="..\Miracle.Common.Utility.ChineseLunar\Miracle.Common.Utility.ChineseLunar.csproj" />
-    <ProjectReference Include="..\Miracle.Common.Utility.DateTimeStamp\Miracle.Common.Utility.DateTimeStamp.csproj" />
-    <ProjectReference Include="..\Miracle.Common.Utility.PinYin\Miracle.Common.Utility.PinYin.csproj" />
-    <ProjectReference Include="..\Miracle.Common.Utility.RMB\Miracle.Common.Utility.RMB.csproj" />
-    <ProjectReference Include="..\Miracle.Common.Utility.Security\Miracle.Common.Utility.Security.csproj" />
+    <PackageReference Include="Miracle.Common.Utility.Array" Version="5.0.3" />
+    <PackageReference Include="Miracle.Common.Utility.ChineseLunar" Version="5.0.3" />
+    <PackageReference Include="Miracle.Common.Utility.DateTimeStamp" Version="5.0.3" />
+    <PackageReference Include="Miracle.Common.Utility.PinYin" Version="5.0.3" />
+    <PackageReference Include="Miracle.Common.Utility.RMB" Version="5.0.3" />
+    <PackageReference Include="Miracle.Common.Utility.Security" Version="5.0.3" />
+    <PackageReference Include="Miracle.Common.Utility.String" Version="5.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Miracle.Common.Utility.Serialization\Miracle.Common.Utility.Serialization.csproj" />
-    <ProjectReference Include="..\Miracle.Common.Utility.String\Miracle.Common.Utility.String.csproj" />
   </ItemGroup>
 
 </Project>

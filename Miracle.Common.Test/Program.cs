@@ -10,11 +10,11 @@ namespace Miraclesoft.Common.Test
             Test test = new Test();
 
             #region 人民币工具测试
-            test.RMBTest();
+            Test.RMBTest();
             #endregion
 
             #region DateTimeStampExtensionTest
-            test.DateStampExtensionTest();
+            Test.DateStampExtensionTest();
             #endregion
 
             #region 拼音工具测试
@@ -25,27 +25,27 @@ namespace Miraclesoft.Common.Test
              * Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
              */
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            test.PyToolsTest();
+            Test.PyToolsTest();
             #endregion
 
             #region 农历测试
-            test.LunarTest();
+            Test.LunarTest();
             #endregion
 
             #region 序列化测试
-            test.SerializerTest();
+            Test.SerializerTest();
             #endregion
 
             #region 字符串扩展方法测试
-            test.StringExtensionTest();
+            Test.StringExtensionTest();
             #endregion
 
             #region 字符串加密扩展测试
-            test.SecurityExtensionTest();
+            Test.SecurityExtensionTest();
             #endregion
 
             #region 数组扩展函数测试
-            test.ArrayExtensionTest();
+            Test.ArrayExtensionTest();
             #endregion
 
             try

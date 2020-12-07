@@ -14,7 +14,7 @@ namespace Miracle.Common.Utility.DateTimeStamp
         /// <returns></returns>
         public static DateTime ToDateTime(this long timestamp)
         {
-            return (new DateTime(1970, 1, 1)).ToLocalTime().AddSeconds(timestamp / 1000);
+            return new DateTime(1970, 1, 1).ToLocalTime().AddSeconds(timestamp / 1000);
         }
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Miracle.Common.Utility.DateTimeStamp
         /// <returns></returns>
         public static DateTime ToDateTime(this int timestamp)
         {
-            return (new DateTime(1970, 1, 1)).ToLocalTime().AddSeconds(timestamp);
+            return new DateTime(1970, 1, 1).ToLocalTime().AddSeconds(timestamp);
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Miracle.Common.Utility.DateTimeStamp
         /// <returns></returns>
         public static long ToUnixTimeStamp_13bit(this DateTime time)
         {
-            return (long)((time - (new DateTime(1970, 1, 1)).ToLocalTime()).TotalSeconds * 1000);
+            return (long)((time - new DateTime(1970, 1, 1).ToLocalTime()).TotalSeconds * 1000);
         }
 
         /// <summary>

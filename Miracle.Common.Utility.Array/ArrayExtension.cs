@@ -19,7 +19,7 @@ namespace Miracle.Common.Utility.Array
         {
             if (array == null || array.Length == 0)
                 return default;
-            Random random = new Random();
+            var random = new Random();
             return array[random.Next(0, array.Length)];
         }
 
@@ -33,9 +33,9 @@ namespace Miracle.Common.Utility.Array
         /// <returns>子数组对象</returns>
         public static T[] SubArray<T>(this T[] array, int startIndex, int length = -1)
         {
-            if (length == -1 || length - 1 >= array.Length - 1 - startIndex)
-                return array.Skip(startIndex).ToArray();
-            return array.Skip(startIndex).Take(length).ToArray();
+            return length == -1 || length - 1 >= array.Length - 1 - startIndex
+                ? array.Skip(startIndex).ToArray()
+                : array.Skip(startIndex).Take(length).ToArray();
         }
 
         /// <summary>

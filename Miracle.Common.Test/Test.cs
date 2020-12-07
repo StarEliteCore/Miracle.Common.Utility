@@ -1,11 +1,11 @@
-﻿using Miraclesoft.Common.Utility.Array;
-using Miraclesoft.Common.Utility.ChineseLunar;
-using Miraclesoft.Common.Utility.DateTimeStamp;
-using Miraclesoft.Common.Utility.PinYin;
-using Miraclesoft.Common.Utility.RMB;
-using Miraclesoft.Common.Utility.Security;
-using Miraclesoft.Common.Utility.Serialization;
-using Miraclesoft.Common.Utility.String;
+﻿using Miracle.Common.Utility.Array;
+using Miracle.Common.Utility.ChineseLunar;
+using Miracle.Common.Utility.DateTimeStamp;
+using Miracle.Common.Utility.PinYin;
+using Miracle.Common.Utility.RMB;
+using Miracle.Common.Utility.Security;
+using Miracle.Common.Utility.Serialization;
+using Miracle.Common.Utility.String;
 using Newtonsoft.Json;
 using System;
 using System.Text;
@@ -23,13 +23,11 @@ namespace Miraclesoft.Common.Test
         /// </summary>
         /// <param name="ex">异常对象</param>
         /// <param name="wrap">是否换行输出</param>
-        public void WriteColorText(Exception ex, ConsoleColor color = ConsoleColor.Red, bool wrap = true)
+        public static void WriteColorText(Exception ex, ConsoleColor color = ConsoleColor.Red, bool wrap = true)
         {
             ForegroundColor = color;
-            if (wrap)
-                WriteLine(ex.ToString());
-            else
-                Write(ex.ToString());
+            if (wrap) WriteLine(ex.ToString());
+            else Write(ex.ToString());
             ForegroundColor = ConsoleColor.White;
         }
         /// <summary>
@@ -37,20 +35,18 @@ namespace Miraclesoft.Common.Test
         /// </summary>
         /// <param name="ex">字符串类型</param>
         /// <param name="wrap">是否换行输出</param>
-        public void WriteColorText(string ex, ConsoleColor color = ConsoleColor.Red, bool wrap = true)
+        public static void WriteColorText(string ex, ConsoleColor color = ConsoleColor.Red, bool wrap = true)
         {
             ForegroundColor = color;
-            if (wrap)
-                WriteLine(ex);
-            else
-                Write(ex);
+            if (wrap) WriteLine(ex);
+            else Write(ex);
             ForegroundColor = ConsoleColor.White;
         }
 
         /// <summary>
         /// RMB工具类测试
         /// </summary>
-        public void RMBTest()
+        public static void RMBTest()
         {
             WriteColorText("RMB Test:", ConsoleColor.Green);
             WriteColorText("--------------------------------------------------------------------------------------------------------------------", ConsoleColor.Yellow);
@@ -84,7 +80,7 @@ namespace Miraclesoft.Common.Test
         /// <summary>
         /// DateStampExtensionTest
         /// </summary>
-        public void DateStampExtensionTest()
+        public static void DateStampExtensionTest()
         {
             WriteLine();
             WriteColorText("DateStampExtensionTest", ConsoleColor.Green);
@@ -118,7 +114,7 @@ namespace Miraclesoft.Common.Test
         /// <summary>
         /// PyToolsTest
         /// </summary>
-        public void PyToolsTest()
+        public static void PyToolsTest()
         {
             WriteLine();
             WriteColorText("PyToolsTest", ConsoleColor.Green);
@@ -153,7 +149,7 @@ namespace Miraclesoft.Common.Test
         /// <summary>
         /// 农历测试
         /// </summary>
-        public void LunarTest()
+        public static void LunarTest()
         {
             WriteLine();
             WriteColorText("LunarTest", ConsoleColor.Green);
@@ -234,13 +230,11 @@ namespace Miraclesoft.Common.Test
                 Write("年龄:");
                 WriteColorText($"{Age}", ConsoleColor.Cyan);
             }
-            private void WriteColorText(string ex, ConsoleColor color = ConsoleColor.Red, bool wrap = true)
+            private static void WriteColorText(string ex, ConsoleColor color = ConsoleColor.Red, bool wrap = true)
             {
                 ForegroundColor = color;
-                if (wrap)
-                    WriteLine(ex);
-                else
-                    Write(ex);
+                if (wrap) WriteLine(ex);
+                else Write(ex);
                 ForegroundColor = ConsoleColor.White;
             }
         }
@@ -248,7 +242,7 @@ namespace Miraclesoft.Common.Test
         /// <summary>
         /// 序列化测试
         /// </summary>
-        public void SerializerTest()
+        public static void SerializerTest()
         {
             WriteLine();
             WriteColorText("SerializerTest", ConsoleColor.Green);
@@ -285,7 +279,7 @@ namespace Miraclesoft.Common.Test
         /// <summary>
         /// StringExtension测试
         /// </summary>
-        public void StringExtensionTest()
+        public static void StringExtensionTest()
         {
             WriteLine();
             WriteColorText("StringExtensionTest", ConsoleColor.Green);
@@ -394,27 +388,27 @@ namespace Miraclesoft.Common.Test
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        private string FormateByte(byte[] value)
+        private static string FormateByte(byte[] value)
         {
             var str = "{";
             for (var i = 0; i < value.Length; i++)
             {
                 if (i < value.Length - 1)
                 {
-                    str += (value[i]);
-                    str += (", ");
+                    str += value[i];
+                    str += ", ";
                 }
                 else
-                    str += (value[i]);
+                    str += value[i];
             }
-            str += ("}");
+            str += "}";
             return str;
         }
 
         /// <summary>
         /// 安全加密扩展
         /// </summary>
-        public void SecurityExtensionTest()
+        public static void SecurityExtensionTest()
         {
             WriteLine();
             WriteColorText("SecurityExtensionTest", ConsoleColor.Green);
@@ -500,27 +494,27 @@ namespace Miraclesoft.Common.Test
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        private string FormateInt(int[] value)
+        private static string FormateInt(int[] value)
         {
             var str = "{";
             for (var i = 0; i < value.Length; i++)
             {
                 if (i < value.Length - 1)
                 {
-                    str += (value[i]);
-                    str += (", ");
+                    str += value[i];
+                    str += ", ";
                 }
                 else
-                    str += (value[i]);
+                    str += value[i];
             }
-            str += ("}");
+            str += "}";
             return str;
         }
 
         /// <summary>
         /// 数组扩展函数测试
         /// </summary>
-        public void ArrayExtensionTest()
+        public static void ArrayExtensionTest()
         {
             WriteLine();
             WriteColorText("ArrayExtensionTest", ConsoleColor.Green);

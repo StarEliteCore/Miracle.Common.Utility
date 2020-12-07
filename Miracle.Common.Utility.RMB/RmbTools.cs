@@ -60,8 +60,7 @@ namespace Miracle.Common.Utility.RMB
                 string[] DX_SZ = { "零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖", "拾" };//大写数字  
                 string[] DX_DW = { "元", "拾", "佰", "仟", "万", "拾", "佰", "仟", "亿", "拾", "佰", "仟", "万" };
                 string[] DX_XSDS = { "角", "分" };//大些小数单位  
-                if (Num == 0)
-                    return DX_SZ[0];
+                if (Num == 0) return DX_SZ[0];
                 bool IsXS_bool = false;//是否小数  
                 string NumStr;//整个数字字符串  
                 string NumStr_Zs;//整数部分  
@@ -73,7 +72,7 @@ namespace Miracle.Common.Utility.RMB
                 {
                     NumStr = Math.Round(Num, 2).ToString();
                     NumStr_Zs = NumStr.Substring(0, NumStr.IndexOf("."));
-                    NumSr_Xs = NumStr.Substring((NumStr.IndexOf(".") + 1), (NumStr.Length - NumStr.IndexOf(".") - 1));
+                    NumSr_Xs = NumStr.Substring(NumStr.IndexOf(".") + 1, NumStr.Length - NumStr.IndexOf(".") - 1);
                     IsXS_bool = true;
                 }
                 int k = 0;

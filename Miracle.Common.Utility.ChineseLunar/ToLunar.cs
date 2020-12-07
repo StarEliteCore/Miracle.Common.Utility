@@ -113,9 +113,7 @@ namespace Miracle.Common.Utility.ChineseLunar
         /// </summary>
         private static DateTime GetInDate()
         {
-            if (_date == null)
-                return DateTime.Now;
-            return _date;
+            return _date == null ? DateTime.Now : _date;
         }
         /// <summary>
         /// 传入的公历日期
@@ -147,12 +145,11 @@ namespace Miracle.Common.Utility.ChineseLunar
         /// <returns></returns>
         private static string GetConstellation(DateTime date)
         {
-            int index = 0;
-            var y = date.Year;
             var m = date.Month;
             var d = date.Day;
-            y = m * 100 + d;
-            if (((y >= 321) && (y <= 419)))
+            var y = (m * 100) + d;
+            int index;
+            if ((y >= 321) && (y <= 419))
                 index = 0;
             else if ((y >= 420) && (y <= 520))
                 index = 1;
@@ -174,10 +171,7 @@ namespace Miracle.Common.Utility.ChineseLunar
                 index = 9;
             else if ((y >= 120) && (y <= 218))
                 index = 10;
-            else if ((y >= 219) && (y <= 320))
-                index = 11;
-            else
-                index = 0;
+            else index = (y >= 219) && (y <= 320) ? 11 : 0;
             return ConstellationConfigs.ConstellationConfig[index];
         }
         #endregion
@@ -347,9 +341,7 @@ namespace Miracle.Common.Utility.ChineseLunar
         private static string FormatMonth(int month)
         {
             const string table = "正二三四五六七八九十冬腊";
-            if (month > 12)
-                return "闰" + table.Substring(month - 13, 1);
-            return table.Substring(month - 1, 1);
+            return month > 12 ? "闰" + table.Substring(month - 13, 1) : table.Substring(month - 1, 1);
         }
 
         /// <summary>
@@ -420,8 +412,7 @@ namespace Miracle.Common.Utility.ChineseLunar
             var bigOrLitterSort = ResetSort(bigOrLitter, leap);
             var sum = 0 - bigOrLitterSort[0] - bigOrLitterSort[1] - 29 - 29;//去年11月1日的相对天数,为负数
             var i = 0;//月份
-            while (dif >= sum)
-                sum += bigOrLitterSort[i++] + 29; // 加上每月的农历天数
+            while (dif >= sum) sum += bigOrLitterSort[i++] + 29; // 加上每月的农历天数
             var year = dateNow.Year;//获取年份
             var result = new int[3];// 数组分别存储年月日.
             result[0] = dif < 0 ? year - 1 : year;//在过年前 取去年,在过年后 年份取今年.
@@ -462,7 +453,7 @@ namespace Miracle.Common.Utility.ChineseLunar
                     }
                     else
                     {
-                        if (lastLeap == 11 && result[1] == 12 || lastLeap == 12 && result[1] == 11)
+                        if ((lastLeap == 11 && result[1] == 12) || (lastLeap == 12 && result[1] == 11))
                             result[1] = 12;
                     }
                 }

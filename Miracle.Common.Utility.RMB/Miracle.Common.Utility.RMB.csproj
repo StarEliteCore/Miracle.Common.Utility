@@ -3,11 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <LangVersion>7.2</LangVersion>
-    <Version>5.0.2</Version>
+    <Version>5.0.3</Version>
     <Product>Miracle.Common.Utility</Product>
     <Company>QQ(一般团队)</Company>
     <Authors>QQ(一般团队)</Authors>
-    <PackageProjectUrl>https://github.com/joesdu/Miracle.Common.Utility</PackageProjectUrl>
+    <PackageProjectUrl></PackageProjectUrl>
+    <Description>中国人民币扩展.目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.
+使用方式参考源码Test项目.</Description>
+    <RepositoryUrl>https://github.com/joesdu/Miracle.Common.Utility</RepositoryUrl>
+    <RepositoryType>Public</RepositoryType>
+    <PackageReleaseNotes>中国人民币扩展.目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.
+使用方式参考源码Test项目.</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>

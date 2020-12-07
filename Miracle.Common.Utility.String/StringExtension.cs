@@ -48,18 +48,7 @@ namespace Miracle.Common.Utility.String
         {
             try
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    return defaultValue;
-                }
-                if (DateTime.TryParse(value, out defaultValue))
-                {
-                    return defaultValue;
-                }
-                else
-                {
-                    return defaultValue;
-                }
+                return string.IsNullOrEmpty(value) || DateTime.TryParse(value, out defaultValue) ? defaultValue : defaultValue;
             }
             catch (Exception e)
             {
@@ -78,7 +67,7 @@ namespace Miracle.Common.Utility.String
         {
             try
             {
-                StringCollection strColl = new StringCollection();
+                var strColl = new StringCollection();
                 if (value != null)
                 {
                     strColl.AddRange(value);
@@ -104,12 +93,8 @@ namespace Miracle.Common.Utility.String
         {
             try
             {
-                StringCollection strColl = new StringCollection();
-                if (value == null)
-                {
-                    return strColl;
-                }
-                return value.ToStringCollection(separator.ToString());
+                var strColl = new StringCollection();
+                return value == null ? strColl : value.ToStringCollection(separator.ToString());
             }
             catch (Exception e)
             {
@@ -130,7 +115,7 @@ namespace Miracle.Common.Utility.String
         {
             try
             {
-                StringCollection col = new StringCollection();
+                var col = new StringCollection();
                 if (string.IsNullOrEmpty(separator) || string.IsNullOrEmpty(value) || string.IsNullOrEmpty(value.Trim()))
                 {
                     return col;
@@ -194,16 +179,14 @@ namespace Miracle.Common.Utility.String
         {
             try
             {
-                Regex regex = new Regex(@"\w+");
+                var regex = new Regex(@"\w+");
                 return regex.Replace(value,
                     delegate (Match m)
                     {
                         string str = m.ToString();
-                        if (char.IsLower(str[0]))
-                        {
-                            return char.ToUpper(str[0], System.Globalization.CultureInfo.CurrentCulture) + str.Substring(1, str.Length - 1);
-                        }
-                        return str;
+                        return char.IsLower(str[0])
+                            ? char.ToUpper(str[0], System.Globalization.CultureInfo.CurrentCulture) + str.Substring(1, str.Length - 1)
+                            : str;
                     });
             }
             catch (Exception e)
@@ -221,16 +204,14 @@ namespace Miracle.Common.Utility.String
         {
             try
             {
-                Regex regex = new Regex(@"\w+");
+                var regex = new Regex(@"\w+");
                 return regex.Replace(value,
                     delegate (Match m)
                     {
                         string str = m.ToString();
-                        if (char.IsUpper(str[0]))
-                        {
-                            return char.ToLower(str[0], System.Globalization.CultureInfo.CurrentCulture) + str.Substring(1, str.Length - 1);
-                        }
-                        return str;
+                        return char.IsUpper(str[0])
+                            ? char.ToLower(str[0], System.Globalization.CultureInfo.CurrentCulture) + str.Substring(1, str.Length - 1)
+                            : str;
                     });
             }
             catch (Exception e)
@@ -283,11 +264,13 @@ namespace Miracle.Common.Utility.String
         {
             try
             {
-                MemoryStream mStream = new MemoryStream();
-                byte[] data = encoding.GetBytes(value);
-                mStream.Write(data, 0, data.Length);
-                mStream.Position = 0;
-                return mStream;
+                using (var mStream = new MemoryStream())
+                {
+                    byte[] data = encoding.GetBytes(value);
+                    mStream.Write(data, 0, data.Length);
+                    mStream.Position = 0;
+                    return mStream;
+                }
             }
             catch (Exception e)
             {
@@ -320,7 +303,7 @@ namespace Miracle.Common.Utility.String
         {
             try
             {
-                StringCollection collection = value.ToStringCollection(separator);
+                var collection = value.ToStringCollection(separator);
                 string[] vs = new string[collection.Count];
                 collection.CopyTo(vs, 0);
                 return vs;
@@ -399,7 +382,7 @@ namespace Miracle.Common.Utility.String
         {
             try
             {
-                StringBuilder sb = new StringBuilder(text);
+                var sb = new StringBuilder(text);
                 for (int i = spacingIndex; i <= sb.Length; i += spacingIndex + 1)
                 {
                     if (i >= sb.Length) break;
@@ -433,8 +416,7 @@ namespace Miracle.Common.Utility.String
                         c[i] = (char)12288;
                         continue;
                     }
-                    if (c[i] < 127)
-                        c[i] = (char)(c[i] + 65248);
+                    if (c[i] < 127) c[i] = (char)(c[i] + 65248);
                 }
                 return new string(c);
             }
@@ -461,8 +443,7 @@ namespace Miracle.Common.Utility.String
                         c[i] = (char)32;
                         continue;
                     }
-                    if (c[i] > 65280 && c[i] < 65375)
-                        c[i] = (char)(c[i] - 65248);
+                    if (c[i] > 65280 && c[i] < 65375) c[i] = (char)(c[i] - 65248);
                 }
                 return new string(c);
             }
@@ -505,7 +486,7 @@ namespace Miracle.Common.Utility.String
             {
                 if (value == null | value.Length == 0)
                     return false;
-                Regex myRegex = new Regex(express);
+                var myRegex = new Regex(express);
                 return myRegex.IsMatch(value);
             }
             catch (Exception e)
