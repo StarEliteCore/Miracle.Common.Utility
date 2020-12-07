@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>Miracle.Common.Utility.Register</RootNamespace>
+    <AssemblyName>Miracle.Common.Utility.Register</AssemblyName>
+    <Version>5.0.3</Version>
+    <Authors>QQ(一般团队)</Authors>
+    <Company>QQ(一般团队)</Company>
+    <Description>Windows注册表操作.目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.
+使用方式参考源码.</Description>
+    <RepositoryUrl>https://github.com/joesdu/Miracle.Common.Utility</RepositoryUrl>
+    <RepositoryType>Public</RepositoryType>
+    <PackageReleaseNotes>Windows注册表操作.目前功能不太多.希望大家能够提供PR.部分功能参考网络,性能方面尽量做好,主要是为了方便好使.
+使用方式参考源码.</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>

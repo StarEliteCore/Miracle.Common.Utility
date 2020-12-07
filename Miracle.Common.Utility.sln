@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miracle.Common.Test", "Miracle.Common.Test\Miracle.Common.Test.csproj", "{D6D62C79-2665-499A-9FF5-B10C07550844}"
 EndProject
@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miracle.Common.Utility.Stri
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miracle.Common.Utility.Security", "Miracle.Common.Utility.Security\Miracle.Common.Utility.Security.csproj", "{DC2041DB-38DC-4818-96FF-EE22CC5A8739}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miracle.Common.Utility.Array", "Miracle.Common.Utility.Array\Miracle.Common.Utility.Array.csproj", "{D7E4319E-19B9-4457-BDFA-68F332D2A6BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miracle.Common.Utility.Array", "Miracle.Common.Utility.Array\Miracle.Common.Utility.Array.csproj", "{D7E4319E-19B9-4457-BDFA-68F332D2A6BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miracle.Common.Utility.Register", "Miracle.Common.Utility.Register\Miracle.Common.Utility.Register.csproj", "{7E42D86A-552F-4454-AA31-E8BD57D4B92B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{D7E4319E-19B9-4457-BDFA-68F332D2A6BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7E4319E-19B9-4457-BDFA-68F332D2A6BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7E4319E-19B9-4457-BDFA-68F332D2A6BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E42D86A-552F-4454-AA31-E8BD57D4B92B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E42D86A-552F-4454-AA31-E8BD57D4B92B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E42D86A-552F-4454-AA31-E8BD57D4B92B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E42D86A-552F-4454-AA31-E8BD57D4B92B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
