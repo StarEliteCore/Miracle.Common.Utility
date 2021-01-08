@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <LangVersion>7.2</LangVersion>
+	<LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -12,13 +12,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Miracle.Common.Utility.Array" Version="5.0.3" />
-    <PackageReference Include="Miracle.Common.Utility.ChineseLunar" Version="5.0.3" />
-    <PackageReference Include="Miracle.Common.Utility.DateTimeStamp" Version="5.0.3" />
-    <PackageReference Include="Miracle.Common.Utility.PinYin" Version="5.0.3" />
-    <PackageReference Include="Miracle.Common.Utility.RMB" Version="5.0.3" />
-    <PackageReference Include="Miracle.Common.Utility.Security" Version="5.0.3" />
-    <PackageReference Include="Miracle.Common.Utility.String" Version="5.0.3" />
+    <PackageReference Include="Miracle.Common.Utility.Array" Version="5.0.3.102" />
+    <PackageReference Include="Miracle.Common.Utility.ChineseLunar" Version="5.0.3.102" />
+    <PackageReference Include="Miracle.Common.Utility.DateTimeStamp" Version="5.0.3.102" />
+    <PackageReference Include="Miracle.Common.Utility.PinYin" Version="5.0.3.102" />
+    <PackageReference Include="Miracle.Common.Utility.RMB" Version="5.0.3.102" />
+    <PackageReference Include="Miracle.Common.Utility.Security" Version="5.0.3.102" />
+    <PackageReference Include="Miracle.Common.Utility.String" Version="5.0.3.102" />
   </ItemGroup>
 
   <ItemGroup>

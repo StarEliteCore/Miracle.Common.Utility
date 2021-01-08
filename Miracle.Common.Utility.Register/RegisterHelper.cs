@@ -18,8 +18,7 @@ namespace Miracle.Common.Utility.Register
         /// <summary>
         /// 构造函数
         /// </summary>
-        public RegisterHelper()
-        { }
+        public RegisterHelper() { }
 
         /// <summary>
         /// 构造函数
@@ -116,8 +115,7 @@ namespace Miracle.Common.Utility.Register
             var software = rk.OpenSubKey(BaseKey, true);
             var rkt = software.OpenSubKey(key);
             var names = rkt.GetValueNames();
-            if (names.Length == 0)
-                return names;
+            if (names.Length == 0) return names;
             var values = new string[names.Length];
             var i = 0;
             foreach (var name in names)
@@ -136,13 +134,11 @@ namespace Miracle.Common.Utility.Register
         /// <param name="obj">传入的对象</param>
         public void SetObjectValue(KeyType keyType, string key, object obj)
         {
-            if (obj == null)
-                return;
+            if (obj == null) return;
             var t = obj.GetType();
             foreach (var p in t.GetProperties())
             {
-                if (p == null)
-                    continue;
+                if (p == null) continue;
                 SetValue(keyType, key, p.Name, p.GetValue(obj, null).ToString());
             }
         }

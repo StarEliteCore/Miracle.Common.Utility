@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <LangVersion>7.2</LangVersion>
-    <Version>5.0.3.101</Version>
+	<LangVersion>latest</LangVersion>
+    <Version>5.0.3.102</Version>
     <Authors>QQ(一般团队)643725627</Authors>
     <Product>Miracle.Common.Utility</Product>
     <PackageProjectUrl>https://github.com/joesdu/Miracle.Common.Utility</PackageProjectUrl>

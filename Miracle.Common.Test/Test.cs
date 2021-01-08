@@ -6,7 +6,6 @@ using Miracle.Common.Utility.RMB;
 using Miracle.Common.Utility.Security;
 using Miracle.Common.Utility.Serialization;
 using Miracle.Common.Utility.String;
-using Newtonsoft.Json;
 using System;
 using System.Text;
 using static System.Console;
@@ -69,7 +68,7 @@ namespace Miraclesoft.Common.Test
                 WriteColorText("[异常测试:]");
                 WriteLine(RmbTools.ConvertToChinese("测试"));
             }
-            catch (RmbException ex)
+            catch (Exception ex)
             {
                 WriteColorText(ex);
                 WriteColorText("--------------------------------------------------------------------------------------------------------------------", ConsoleColor.Yellow);
@@ -187,22 +186,22 @@ namespace Miraclesoft.Common.Test
             ToLunar.Init("20181120");
             WriteColorText(ToLunar.ChineseLunar, ConsoleColor.Magenta);
             WriteColorText("农历偏移:", ConsoleColor.Blue);
-            ToLunar.AddYear(20);
+            _ = ToLunar.AddYear(20);
             Write("增加20年:");
             WriteColorText($"{ToLunar.ChineseLunar}", ConsoleColor.Magenta);
-            ToLunar.AddYear(-10);
+            _ = ToLunar.AddYear(-10);
             Write("减少10年:");
             WriteColorText($"{ToLunar.ChineseLunar}", ConsoleColor.Magenta);
-            ToLunar.AddMonth(13);
+            _ = ToLunar.AddMonth(13);
             Write("增加13月:");
             WriteColorText($"{ToLunar.ChineseLunar}", ConsoleColor.Magenta);
-            ToLunar.AddMonth(-12);
+            _ = ToLunar.AddMonth(-12);
             Write("减少12月:");
             WriteColorText($"{ToLunar.ChineseLunar}", ConsoleColor.Magenta);
-            ToLunar.AddDay(15);
+            _ = ToLunar.AddDay(15);
             Write("增加15天:");
             WriteColorText($"{ToLunar.ChineseLunar}", ConsoleColor.Magenta);
-            ToLunar.AddDay(-12);
+            _ = ToLunar.AddDay(-12);
             Write("减少12天:");
             WriteColorText($"{ToLunar.ChineseLunar}", ConsoleColor.Magenta);
             WriteColorText("--------------------------------------------------------------------------------------------------------------------", ConsoleColor.Yellow);
@@ -224,11 +223,11 @@ namespace Miraclesoft.Common.Test
             public void ToConsole()
             {
                 Write("姓名:");
-                WriteColorText($"{Name}", ConsoleColor.Cyan, false);
+                WriteColorText(Name, ConsoleColor.Cyan, false);
                 Write("性别:");
-                WriteColorText($"{Sex}", ConsoleColor.Cyan, false);
+                WriteColorText(Sex, ConsoleColor.Cyan, false);
                 Write("年龄:");
-                WriteColorText($"{Age}", ConsoleColor.Cyan);
+                WriteColorText(Age.ToString(), ConsoleColor.Cyan);
             }
             private static void WriteColorText(string ex, ConsoleColor color = ConsoleColor.Red, bool wrap = true)
             {
@@ -248,7 +247,7 @@ namespace Miraclesoft.Common.Test
             WriteColorText("SerializerTest", ConsoleColor.Green);
             WriteColorText("--------------------------------------------------------------------------------------------------------------------", ConsoleColor.Yellow);
             WriteLine($"Xml序列化:");
-            Student z_san = new Student
+            Student z_san = new()
             {
                 Name = "张三",
                 Sex = "女",
@@ -257,7 +256,7 @@ namespace Miraclesoft.Common.Test
             var z_san_str = XmlSerializerTool.ToXml(z_san);
             WriteColorText(XmlSerializerTool.FormatXML(z_san_str), ConsoleColor.Magenta);
             WriteLine("Binary序列化:");
-            Student li_si = new Student
+            Student li_si = new()
             {
                 Name = "李四",
                 Sex = "男",
@@ -291,7 +290,7 @@ namespace Miraclesoft.Common.Test
             WriteColorText("t".ReplicateString(3), ConsoleColor.Magenta);
             WriteLine();
             Write("日期字符串转化为日期对象:");
-            DateTime time = "2019-01-01".ToDateTime();
+            var time = "2019-01-01".ToDateTime();
             WriteColorText(time.ToLongDateString(), ConsoleColor.Magenta);
             WriteLine();
             WriteLine("字符串数组转换成字符串集合.测试数组:{'123sdf','dsgsdg','gf3rgt'}");
@@ -306,19 +305,8 @@ namespace Miraclesoft.Common.Test
             Write("以'12'为间隔符,输出转化后的字符串数量:");
             WriteColorText($"{"siuhgasidgh12sdgasdhafh12989878ajshgdasd12adgase".ToStringCollection("12").Count}", ConsoleColor.Magenta);
             WriteLine();
-            WriteLine("Json反序列化,用于接收客户端Json后生成对应的对象");
-            Student z_san = new Student
-            {
-                Name = "张三",
-                Sex = "女",
-                Age = 23
-            };
-            string json = JsonConvert.SerializeObject(z_san);
-            Student student = json.JsonToObject<Student>();
-            student.ToConsole();
-            WriteLine();
             WriteLine("将字符串中的单词首字母大写,测试字符串:'game over'");
-            string str = "game over".ToTitleUpperCase();
+            var str = "game over".ToTitleUpperCase();
             WriteColorText(str, ConsoleColor.Magenta);
             WriteLine("将字符串中的单词首字母小写.测试字符串:为上函数转化后的字符串");
             WriteColorText(str.ToTitleLowerCase(), ConsoleColor.Magenta);
@@ -338,7 +326,7 @@ namespace Miraclesoft.Common.Test
                 WriteColorText(ex);
             }
             WriteLine();
-            string base64str = "Microsoft".StringToBase64();
+            var base64str = "Microsoft".StringToBase64();
             Write("将字符串转换成Base64字符串:测试字符串:'Microsoft',输出结果:");
             WriteColorText(base64str, ConsoleColor.Magenta);
             WriteLine();
@@ -350,7 +338,7 @@ namespace Miraclesoft.Common.Test
             WriteColorText("独立国家哈桑领导讲话稿按时鉴定会gals的机会格拉斯的".Spacing(",", 3), ConsoleColor.Magenta);
             WriteLine();
             WriteLine("字符串的全角半角转换:测试字符串:'我是ABC,你是谁?'");
-            string sbc = "我是ABC,你是谁?".ToSBC();
+            var sbc = "我是ABC,你是谁?".ToSBC();
             Write("转化为全角:");
             WriteColorText(sbc, ConsoleColor.Magenta);
             Write("转化为半角:");
@@ -431,7 +419,7 @@ namespace Miraclesoft.Common.Test
             WriteLine("当密匙错误的时候的情况:");
             try
             {
-                encryptstr.DESDecrypt("Linux love Microsoft");
+                _ = encryptstr.DESDecrypt("Linux love Microsoft");
             }
             catch (Exception ex)
             {
@@ -468,7 +456,7 @@ namespace Miraclesoft.Common.Test
             WriteLine("密码错误测试:");
             try
             {
-                tripstr.TripleDESDecrypt("TEST");
+                _ = tripstr.TripleDESDecrypt("TEST");
             }
             catch (Exception ex)
             {
@@ -477,7 +465,7 @@ namespace Miraclesoft.Common.Test
             WriteLine();
             try
             {
-                value.TripleDESDecrypt("TEST");
+                _ = value.TripleDESDecrypt("TEST");
             }
             catch (Exception ex)
             {

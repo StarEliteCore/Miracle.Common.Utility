@@ -28,7 +28,7 @@ namespace Miracle.Common.Utility.Serialization
                     StringBuilder sb = new StringBuilder();
                     foreach (byte bt in bytes)
                     {
-                        sb.Append(string.Format("{0:X2}", bt));
+                        _ = sb.Append(string.Format("{0:X2}", bt));
                     }
                     return sb.ToString();
                 }

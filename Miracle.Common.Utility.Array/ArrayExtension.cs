@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Miracle.Common.Utility.Array
@@ -51,7 +50,7 @@ namespace Miracle.Common.Utility.Array
             {
                 try
                 {
-                    List<T> lt = array.ToList();
+                    var lt = array.ToList();
                     lt.Add(obj);
                     return lt.ToArray();
                 }
@@ -60,8 +59,7 @@ namespace Miracle.Common.Utility.Array
                     throw ex;
                 }
             }
-            else
-                return null;
+            else return null;
         }
 
         /// <summary>
@@ -77,7 +75,7 @@ namespace Miracle.Common.Utility.Array
             {
                 try
                 {
-                    List<T> lt = array.ToList();
+                    var lt = array.ToList();
                     lt.AddRange(obj);
                     return lt.ToArray();
                 }
@@ -86,8 +84,7 @@ namespace Miracle.Common.Utility.Array
                     throw ex;
                 }
             }
-            else
-                return null;
+            else return null;
         }
 
         /// <summary>
@@ -102,9 +99,9 @@ namespace Miracle.Common.Utility.Array
             {
                 try
                 {
-                    List<T> lt = array.ToList();
+                    var lt = array.ToList();
                     T t = lt.Last();
-                    lt.Remove(t);
+                    _ = lt.Remove(t);
                     var temp = lt.ToArray();
                     return new Tuple<T, T[]>(t, temp);
                 }
@@ -113,8 +110,7 @@ namespace Miracle.Common.Utility.Array
                     throw ex;
                 }
             }
-            else
-                throw new IndexOutOfRangeException();
+            else throw new IndexOutOfRangeException();
         }
     }
 }

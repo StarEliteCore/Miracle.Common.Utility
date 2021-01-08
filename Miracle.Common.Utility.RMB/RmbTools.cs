@@ -26,7 +26,7 @@ namespace Miracle.Common.Utility.RMB
             }
             catch (Exception ex)
             {
-                throw new RmbException("转化为中文汉字大写失败!", ex);
+                throw new Exception("转化为中文汉字大写失败!", ex);
             }
         }
 
@@ -43,7 +43,7 @@ namespace Miracle.Common.Utility.RMB
             }
             catch (Exception ex)
             {
-                throw new RmbException("数据类型异常,转化为中文汉字大写失败!", ex);
+                throw new Exception("数据类型异常,转化为中文汉字大写失败!", ex);
             }
         }
 
@@ -107,7 +107,7 @@ namespace Miracle.Common.Utility.RMB
                 if (NumStr_Zs.Length > 2 && k == NumStr_Zs.Length - 1)
                     NumStr_R = NumStr_R.Remove(NumStr_R.IndexOf('零'), 1); //比如1000，10000元整的情况下 去0  
                 if (!IsXS_bool)
-                    return NumStr_R + "整"; //如果没有小数就返回  
+                    return $"{NumStr_R}整"; //如果没有小数就返回  
                 else
                 {
                     for (int i = 0; i < NumSr_Xs.Length; i++)
@@ -120,7 +120,7 @@ namespace Miracle.Common.Utility.RMB
             }
             catch (Exception ex)
             {
-                throw new RmbException("转化为中文汉字大写失败!", ex);
+                throw new Exception("转化为中文汉字大写失败!", ex);
             }
         }
     }

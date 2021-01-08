@@ -59,7 +59,7 @@ namespace Miracle.Common.Utility.PinYin
             {
                 var py = GetPinYin(t);
                 if (py != "")
-                    chars.Append(py[0].ToString().ToUpper());
+                    _ = chars.Append(py[0].ToString().ToUpper());
             }
             return chars.ToString().ToUpper();
         }
@@ -77,10 +77,7 @@ namespace Miracle.Common.Utility.PinYin
             foreach (var t in text)
             {
                 var py = GetPinYin(t, defaultstr);
-                if (py != "")
-                    chars.Append(py[0].ToString().ToUpper());
-                else
-                    chars.Append(defaultstr);
+                _ = py != "" ? chars.Append(py[0].ToString().ToUpper()) : chars.Append(defaultstr);
             }
             return chars.ToString().ToUpper();
         }
@@ -119,8 +116,7 @@ namespace Miracle.Common.Utility.PinYin
             foreach (var t in text)
             {
                 var py = GetPinYin(t);
-                if (py != "")
-                    sbPinyin.Append(py);
+                if (py != "") _ = sbPinyin.Append(py);
             }
             return sbPinyin.ToString().Trim();
         }
@@ -137,10 +133,7 @@ namespace Miracle.Common.Utility.PinYin
             foreach (var t in text)
             {
                 var py = GetPinYin(t, defaultstr);
-                if (py != "")
-                    sbPinyin.Append(py);
-                else
-                    sbPinyin.Append(defaultstr);
+                _ = py != "" ? sbPinyin.Append(py) : sbPinyin.Append(defaultstr);
             }
             return sbPinyin.ToString().Trim();
         }
@@ -248,10 +241,9 @@ namespace Miracle.Common.Utility.PinYin
             var key = pinyin.Trim().ToLower();
             foreach (var str in PyCode.Codes)
             {
-                if (str.StartsWith(key + " ") || str.StartsWith(key + ":"))
-                    return str.Substring(7);
+                if (str.StartsWith(key + " ") || str.StartsWith(key + ":")) return str.Substring(7);
             }
-            return "";
+            return string.Empty;
         }
 
         /// <summary>
@@ -261,8 +253,7 @@ namespace Miracle.Common.Utility.PinYin
         /// <param name="encoding">编码</param>
         /// <returns>返回编码为encoding的拼音为pinyin的汉字列表，如拼音“ai”将会返回“唉爱……”等</returns>
         public static string GetChineseText(string pinyin, Encoding encoding) =>
-            ConvertEncoding(GetChineseText(ConvertEncoding(pinyin, encoding, Encoding.UTF8)), Encoding.UTF8,
-                encoding);
+            ConvertEncoding(GetChineseText(ConvertEncoding(pinyin, encoding, Encoding.UTF8)), Encoding.UTF8, encoding);
 
         #endregion
 

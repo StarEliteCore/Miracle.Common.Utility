@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Specialized;
 using System.IO;
 using System.Text;
@@ -126,14 +125,7 @@ namespace Miracle.Common.Utility.String
                 while (pos >= 0)
                 {
                     pos = value.IndexOf(separator, index, StringComparison.CurrentCultureIgnoreCase);
-                    if (pos >= 0)
-                    {
-                        col.Add(value.Substring(index, pos - index));
-                    }
-                    else
-                    {
-                        col.Add(value.Substring(index));
-                    }
+                    _ = pos >= 0 ? col.Add(value.Substring(index, pos - index)) : col.Add(value.Substring(index));
                     index = pos + len;
                 }
                 return col;
@@ -145,29 +137,29 @@ namespace Miracle.Common.Utility.String
         }
         #endregion
 
-        #region Josn反序列化将Json字符串转为对象
-        /// <summary>
-        /// Json反序列化,用于接收客户端Json后生成对应的对象。
-        /// </summary>
-        public static T JsonToObject<T>(this string value)
-        {
-            try
-            {
-                var type = typeof(T);
-                var tReturn = type.Assembly.CreateInstance(type.FullName);
-                try
-                {
-                    tReturn = JsonConvert.DeserializeObject<T>(value);
-                }
-                catch { }
-                return (T)tReturn;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-        #endregion
+        //#region Josn反序列化将Json字符串转为对象
+        ///// <summary>
+        ///// Json反序列化,用于接收客户端Json后生成对应的对象。
+        ///// </summary>
+        //public static T JsonToObject<T>(this string value)
+        //{
+        //    try
+        //    {
+        //        var type = typeof(T);
+        //        var tReturn = type.Assembly.CreateInstance(type.FullName);
+        //        try
+        //        {
+        //            tReturn = JsonConvert.DeserializeObject<T>(value);
+        //        }
+        //        catch { }
+        //        return (T)tReturn;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
+        //#endregion
 
         #region 将字符串中的单词首字母大写或者小写
         /// <summary>
@@ -386,7 +378,7 @@ namespace Miracle.Common.Utility.String
                 for (int i = spacingIndex; i <= sb.Length; i += spacingIndex + 1)
                 {
                     if (i >= sb.Length) break;
-                    sb.Insert(i, spacingString);
+                    _ = sb.Insert(i, spacingString);
                 }
                 return sb.ToString();
             }
@@ -534,7 +526,7 @@ namespace Miracle.Common.Utility.String
             var sb = new StringBuilder(capacity: value.Length);
             for (int i = value.Length; i > 0;)
             {
-                sb.Append(value[--i]);
+                _ = sb.Append(value[--i]);
             }
             return sb.ToString();
         }

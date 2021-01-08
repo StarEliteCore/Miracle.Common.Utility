@@ -133,8 +133,7 @@ namespace Miracle.Common.Utility.ChineseLunar
                     Init(DateTime.Now);
                     return GetConstellation(_date);
                 }
-                else
-                    return GetConstellation(_date);
+                else return GetConstellation(_date);
             }
         }
 
@@ -258,10 +257,8 @@ namespace Miracle.Common.Utility.ChineseLunar
         {
             var dateArray = Judge(date);
             SetInDate(new DateTime(dateArray[0], dateArray[1], dateArray[2]));
-            if (dateArray == null)
-                throw new Exception("-输入的日期不合法-");
-            if (!Judge(dateArray))
-                throw new Exception("-输入的日期不合法-");
+            if (dateArray == null) throw new Exception("-输入的日期不合法-");
+            if (!Judge(dateArray)) throw new Exception("-输入的日期不合法-");
             var year = dateArray[0];
             if (year < First_Year || year > Last_Year)
                 throw new Exception("-输入的日期年份超出范围,年份必须在" + First_Year + "与" + Last_Year + "之间-");
@@ -278,10 +275,8 @@ namespace Miracle.Common.Utility.ChineseLunar
         {
             var dateArray = Judge(date);
             SetInDate(date);
-            if (dateArray == null)
-                throw new Exception("-输入的日期不合法-");
-            if (!Judge(dateArray))
-                throw new Exception("-输入的日期不合法-");
+            if (dateArray == null) throw new Exception("-输入的日期不合法-");
+            if (!Judge(dateArray)) throw new Exception("-输入的日期不合法-");
             var year = dateArray[0];
             if (year < First_Year || year > Last_Year)
                 throw new Exception("-输入的日期年份超出范围,年份必须在" + First_Year + "与" + Last_Year + "之间-");
@@ -299,7 +294,7 @@ namespace Miracle.Common.Utility.ChineseLunar
             var year2 = year;
             while (year2 != 0)
             {
-                result.Append("零一二三四五六七八九".Substring(year2 % 10, 1));
+                _ = result.Append("零一二三四五六七八九".Substring(year2 % 10, 1));
                 year2 /= 10;
             }
             return ReverseByPointer(result.ToString());
@@ -619,11 +614,7 @@ namespace Miracle.Common.Utility.ChineseLunar
             var year = date[0];
             var month = date[1];
             var day = date[2];
-            if (month > 12 || month < 1)
-                return false;
-            if (day > 31 || day < 1)
-                return false;
-            if (day == 31 && (month == 2 || month == 4 || month == 6 || month == 9 || month == 11))
+            if (month > 12 || month < 1 || day > 31 || day < 1 || day == 31 && (month == 2 || month == 4 || month == 6 || month == 9 || month == 11))
                 return false;
             if (month != 2)
                 return true;
@@ -667,8 +658,7 @@ namespace Miracle.Common.Utility.ChineseLunar
             var year = dataTop[1].Substring(0, 4);
             var startYear = int.Parse(year);
             var data = new string[dataTop.Length];
-            foreach (var t in dataTop)
-                Load(data, t, startYear - 1);
+            foreach (var t in dataTop) Load(data, t, startYear - 1);
             return Cast(now, Load(data), startYear);
         }
 
@@ -681,11 +671,11 @@ namespace Miracle.Common.Utility.ChineseLunar
         {
             var sb = new StringBuilder("");
             var result = Cast2Array(date);
-            sb.Append(FormatYear(result[0]));
-            sb.Append("年");
-            sb.Append(FormatMonth(result[1]));
-            sb.Append("月");
-            sb.Append(FormatDay(result[2]));
+            _ = sb.Append(FormatYear(result[0]));
+            _ = sb.Append("年");
+            _ = sb.Append(FormatMonth(result[1]));
+            _ = sb.Append("月");
+            _ = sb.Append(FormatDay(result[2]));
             LunarYear = FormatYear(result[0]);
             LunarMonth = FormatMonth(result[1]);
             LunarDay = FormatDay(result[2]);

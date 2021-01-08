@@ -48,11 +48,12 @@ namespace Miracle.Common.Utility.Ini
 
                         if (sectionStart == 0 && sectionEnd >= 1)
                         {
-                            tempSection = new IniContext.Section();
-
-                            tempSection.Name = item[(sectionStart + 1)..sectionEnd];
-                            tempSection.Line = i;
-                            tempSection.Args = new Dictionary<string, string>();
+                            tempSection = new IniContext.Section
+                            {
+                                Name = item[(sectionStart + 1)..sectionEnd],
+                                Line = i,
+                                Args = new Dictionary<string, string>()
+                            };
 
                             iniCotext.Sections.Items.Add(tempSection);
                         }
@@ -275,7 +276,7 @@ namespace Miracle.Common.Utility.Ini
                     {
                         foreach (var item in Sections.Items)
                         {
-                            sb.AppendLine($"[{item.Name}]");
+                            _ = sb.AppendLine($"[{item.Name}]");
                             if (item.Args == null)
                             {
                                 continue;
@@ -283,7 +284,7 @@ namespace Miracle.Common.Utility.Ini
                             IEnumerable<string> args = item.Args.Select(x => $"{x.Key}={x.Value}");
                             foreach (string argItem in args)
                             {
-                                sb.AppendLine(argItem);
+                                _ = sb.AppendLine(argItem);
                             }
                         }
                     }
