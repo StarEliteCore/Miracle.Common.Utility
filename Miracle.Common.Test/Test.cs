@@ -1,5 +1,6 @@
 ﻿using Miracle.Common.Utility.Array;
 using Miracle.Common.Utility.ChineseLunar;
+using Miracle.Common.Utility.DateTimeExtension;
 using Miracle.Common.Utility.DateTimeStamp;
 using Miracle.Common.Utility.PinYin;
 using Miracle.Common.Utility.RMB;
@@ -542,6 +543,34 @@ namespace Miraclesoft.Common.Test
             WriteLine();
             WriteColorText($@"--------------------------------------------------------------------------------------------------------------------", ConsoleColor.Yellow);
             WriteColorText("ArrayExtensionTest Complete", ConsoleColor.Green);
+            WriteLine();
+        }
+
+        /// <summary>
+        /// DateTime扩展函数测试
+        /// </summary>
+        public static void DateTimeExtensionTest()
+        {
+            WriteLine();
+            WriteColorText("DateTimeExtensionTest", ConsoleColor.Green);
+            WriteColorText($@"--------------------------------------------------------------------------------------------------------------------", ConsoleColor.Yellow);
+            var now = DateTime.Now;
+            var (days, daye) = DateTimeExtension.DayStartEnd(now);
+            var (months, monthe) = DateTimeExtension.MonthStartEnd(now);
+            Console.WriteLine();
+            var (yesrs, yeare) = DateTimeExtension.YearStartEnd(now);
+            Console.WriteLine();
+            Write("测试时间:");
+            WriteColorText($"{ now:yyyy-MM-dd HH:mm:ss}", ConsoleColor.Yellow);
+            Write("某日的开始时间和结束时间:");
+            WriteColorText($"{days:yyyy-MM-dd HH:mm:ss}-{daye:yyyy-MM-dd HH:mm:ss}", ConsoleColor.Magenta);
+            Write("某月的开始时间和结束时间:");
+            WriteColorText($"{months:yyyy-MM-dd HH:mm:ss}-{monthe:yyyy-MM-dd HH:mm:ss}", ConsoleColor.Magenta);
+            Write("某年的开始时间和结束时间:");
+            WriteColorText($"{yesrs:yyyy-MM-dd HH:mm:ss}-{yeare:yyyy-MM-dd HH:mm:ss}", ConsoleColor.Magenta);
+            WriteLine();
+            WriteColorText($@"--------------------------------------------------------------------------------------------------------------------", ConsoleColor.Yellow);
+            WriteColorText("DateTimeExtensionTest Complete", ConsoleColor.Green);
             WriteLine();
         }
     }

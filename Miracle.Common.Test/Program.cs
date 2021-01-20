@@ -48,6 +48,10 @@ namespace Miraclesoft.Common.Test
             Test.ArrayExtensionTest();
             #endregion
 
+            #region DateTime扩展测试
+            Test.DateTimeExtensionTest();
+            #endregion
+
             try
             {
                 //使用VSCode调试代码的时候ReadKey会抛出异常
