@@ -21,7 +21,7 @@ namespace Miracle.Common.Utility.DateTimeExtension
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns>(Start, End)</returns>
-        public static ValueTuple<DateTime, DateTime> MonthStartEnd(DateTime dateTime)
+        public static ValueTuple<DateTime, DateTime> MonthStartEnd(this DateTime dateTime)
         {
             var Start = dateTime.Date.AddDays(1 - dateTime.Day);
             var End = Start.AddMonths(1).AddMilliseconds(-1);
@@ -33,7 +33,7 @@ namespace Miracle.Common.Utility.DateTimeExtension
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns>(Start, End)</returns>
-        public static ValueTuple<DateTime, DateTime> YearStartEnd(DateTime dateTime)
+        public static ValueTuple<DateTime, DateTime> YearStartEnd(this DateTime dateTime)
         {
             var Start = dateTime.Date.AddMonths(1 - dateTime.Month).AddDays(1 - dateTime.Day);
             var End = Start.AddYears(1).AddMilliseconds(-1);

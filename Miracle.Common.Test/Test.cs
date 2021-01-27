@@ -555,10 +555,10 @@ namespace Miraclesoft.Common.Test
             WriteColorText("DateTimeExtensionTest", ConsoleColor.Green);
             WriteColorText($@"--------------------------------------------------------------------------------------------------------------------", ConsoleColor.Yellow);
             var now = DateTime.Now;
-            var (days, daye) = DateTimeExtension.DayStartEnd(now);
-            var (months, monthe) = DateTimeExtension.MonthStartEnd(now);
+            var (days, daye) = now.DayStartEnd();
+            var (months, monthe) = now.MonthStartEnd();
             Console.WriteLine();
-            var (yesrs, yeare) = DateTimeExtension.YearStartEnd(now);
+            var (yesrs, yeare) = now.YearStartEnd();
             Console.WriteLine();
             Write("测试时间:");
             WriteColorText($"{ now:yyyy-MM-dd HH:mm:ss}", ConsoleColor.Yellow);
