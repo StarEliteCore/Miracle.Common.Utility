@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Text;
 
-namespace Miraclesoft.Common.Test
+namespace Miracle.Common.Test
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Test test = new Test();
 
             #region 人民币工具测试
             Test.RMBTest();
