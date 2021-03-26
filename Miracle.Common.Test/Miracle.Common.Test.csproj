@@ -19,7 +19,7 @@
     <PackageReference Include="Miracle.Common.Utility.RMB" Version="5.0.3.102" />
     <PackageReference Include="Miracle.Common.Utility.Security" Version="5.0.3.102" />
     <PackageReference Include="Miracle.Common.Utility.String" Version="5.0.3.102" />
-	<PackageReference Include="Miracle.Common.Utility.DateTime" Version="5.0.3.105" />
+	<PackageReference Include="Miracle.Common.Utility.DateTime" Version="5.0.3.106" />
   </ItemGroup>
 
   <ItemGroup>
