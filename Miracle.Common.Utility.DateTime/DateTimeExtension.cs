@@ -81,5 +81,13 @@ namespace Miracle.Common.Utility.DateTimeExtension
         /// <param name="dateTime"></param>
         /// <returns>(Start, End)</returns>
         public static ValueTuple<DateTime, DateTime> YearStartEnd(this DateTime dateTime) => new(dateTime.YearStart(), dateTime.YearEnd());
+        /// <summary>
+        /// 根据周数和年份获取某周的开始和结束时间
+        /// </summary>
+        /// <param name="week">一年中自然周数</param>
+        /// <param name="year">年份</param>
+        /// <param name="firstDay">一周开始时间(周一或者周日)</param>
+        /// <returns></returns>
+        public static ValueTuple<DateTime, DateTime> WeekStartEndByNumber(this int week, int year, DayOfWeek firstDay) => new DateTime(year, 1, 1).AddDays((week - 1) * 7).WeekStartEnd(firstDay);
     }
 }

@@ -60,6 +60,12 @@ namespace Miracle.Common.Test
             WriteColorText($"{yearend:yyyy-MM-dd HH:mm:ss}", ConsoleColor.Magenta);
             Write("某年的开始时间和结束时间:");
             WriteColorText($"{yesrs:yyyy-MM-dd HH:mm:ss} - {yeare:yyyy-MM-dd HH:mm:ss}", ConsoleColor.Magenta);
+            Write("某年某周的开始和结束时间:  年:2021,周数:20 周第一天:周一 ");
+            var (weekstart0, weekend0) = 20.WeekStartEndByNumber(2021, DayOfWeek.Monday);
+            WriteColorText($"Start:{weekstart0:yyyy-MM-dd HH:mm:ss} End:{weekend0:yyyy-MM-dd HH:mm:ss}", ConsoleColor.Magenta);
+            Write("某年某周的开始和结束时间:  年:2021,周数:20 周第一天:周日 ");
+            var (weekstart1, weekend1) = 20.WeekStartEndByNumber(2021, DayOfWeek.Sunday);
+            WriteColorText($"Start:{weekstart1:yyyy-MM-dd HH:mm:ss} End:{weekend1:yyyy-MM-dd HH:mm:ss}", ConsoleColor.Magenta);
             WriteLine();
             WriteColorText($@"--------------------------------------------------------------------------------------------------------------------", ConsoleColor.Yellow);
             WriteColorText("DateTimeExtensionTest Complete", ConsoleColor.Green);
