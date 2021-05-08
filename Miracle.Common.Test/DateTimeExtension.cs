@@ -66,6 +66,9 @@ namespace Miracle.Common.Test
             Write("某年某周的开始和结束时间:  年:2021,周数:20 周第一天:周日 ");
             var (weekstart1, weekend1) = 20.WeekStartEndByNumber(2021, DayOfWeek.Sunday);
             WriteColorText($"Start:{weekstart1:yyyy-MM-dd HH:mm:ss} End:{weekend1:yyyy-MM-dd HH:mm:ss}", ConsoleColor.Magenta);
+            Write("某年某月的开始和结束时间:  年:2021,月份:2 ");
+            var (monthstart1, monthend1) = 2.MonthStartEndByMonth(2021);
+            WriteColorText($"Start:{monthstart1:yyyy-MM-dd HH:mm:ss} End:{monthend1:yyyy-MM-dd HH:mm:ss}", ConsoleColor.Magenta);
             WriteLine();
             WriteColorText($@"--------------------------------------------------------------------------------------------------------------------", ConsoleColor.Yellow);
             WriteColorText("DateTimeExtensionTest Complete", ConsoleColor.Green);
