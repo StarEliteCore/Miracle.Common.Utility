@@ -56,7 +56,6 @@ namespace Miracle.Common.Utility.DateTimeExtension
                 : substart < validatestart && subend >= validatestart && subend < validateend
                 ? ETimeOverlap.后段包含于
                 : substart > validatestart && substart >= validateend && subend > validateend ? ETimeOverlap.前段包含于 : ETimeOverlap.不在范围内;
-            throw new("无法验证");
         }
     }
 }
