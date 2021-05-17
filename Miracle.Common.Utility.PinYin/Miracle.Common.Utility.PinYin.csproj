@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0-preview.2.21154.6" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" />
   </ItemGroup>
 
 </Project>

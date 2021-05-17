@@ -38,5 +38,25 @@ namespace Miracle.Common.Utility.DateTimeExtension
                     6 => DayOfWeek.Saturday,
                     _ => DayOfWeek.Sunday
                 };
+
+        /// <summary>
+        /// 验证时间段和另一个时间段的重合情况
+        /// </summary>
+        /// <param name="sub">需要验证的时间段</param>
+        /// <param name="validate">所属源</param>
+        /// <returns>ETimeOverlap</returns>
+        public static ETimeOverlap TimeOverlap(Tuple<DateTime, DateTime> sub, Tuple<DateTime, DateTime> validate)
+        {
+            var (substart, subend) = sub;
+            var (validatestart, validateend) = validate;
+            return substart >= subend | validatestart >= validateend
+                ? throw new("时间段不合法")
+                : substart >= validatestart && substart < validateend && subend <= validateend && subend > validatestart
+                ? ETimeOverlap.包含或等于
+                : substart < validatestart && subend >= validatestart && subend < validateend
+                ? ETimeOverlap.后段包含于
+                : substart > validatestart && substart >= validateend && subend > validateend ? ETimeOverlap.前段包含于 : ETimeOverlap.不在范围内;
+            throw new("无法验证");
+        }
     }
 }
