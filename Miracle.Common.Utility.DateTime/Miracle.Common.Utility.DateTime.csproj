@@ -4,7 +4,7 @@
 	  <TargetFrameworks>net6.0;net5.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
 	  <LangVersion>latest</LangVersion>
 	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-	  <Version>6.0.0</Version>
+	  <Version>6.0.1</Version>
 	  <Company>QQ(一般团队)643725627</Company>
 	  <Product>Miracle.Common.Utility</Product>
 	  <Authors>QQ(一般团队)643725627</Authors>
@@ -14,8 +14,8 @@
 	  <RepositoryUrl>https://github.com/joesdu/Miracle.Common.Utility</RepositoryUrl>
 	  <RepositoryType>GitHub</RepositoryType>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	  <AssemblyVersion>6.0.0</AssemblyVersion>
-	  <FileVersion>6.0.0</FileVersion>
+	  <AssemblyVersion>6.0.1</AssemblyVersion>
+	  <FileVersion>6.0.1</FileVersion>
   </PropertyGroup>
 
 </Project>

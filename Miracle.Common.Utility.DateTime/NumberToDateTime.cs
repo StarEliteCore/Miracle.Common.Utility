@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Miracle.Common.Utility
+namespace Miracle.Common.Utility.NumberToDateTime
 {
     public static class NumberToDateTime
     {
