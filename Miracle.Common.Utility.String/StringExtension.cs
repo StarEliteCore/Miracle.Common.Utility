@@ -25,7 +25,7 @@ namespace Miracle.Common.Utility.String
         /// <param name="c">要重复的字符。</param>
         /// <param name="count">重复的次数。</param>
         /// <returns>字符c重复count次后的串联字符串。</returns>
-        public static string ReplicateString(this char c, int count) => new string(c, count);
+        public static string ReplicateString(this char c, int count) => new(c, count);
         #endregion
 
         #region 字符串转为日期
@@ -136,30 +136,6 @@ namespace Miracle.Common.Utility.String
             }
         }
         #endregion
-
-        //#region Json反序列化将Json字符串转为对象
-        ///// <summary>
-        ///// Json反序列化,用于接收客户端Json后生成对应的对象。
-        ///// </summary>
-        //public static T JsonToObject<T>(this string value)
-        //{
-        //    try
-        //    {
-        //        var type = typeof(T);
-        //        var tReturn = type.Assembly.CreateInstance(type.FullName);
-        //        try
-        //        {
-        //            tReturn = JsonConvert.DeserializeObject<T>(value);
-        //        }
-        //        catch { }
-        //        return (T)tReturn;
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw e;
-        //    }
-        //}
-        //#endregion
 
         #region 将字符串中的单词首字母大写或者小写
         /// <summary>

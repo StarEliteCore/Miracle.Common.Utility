@@ -16,8 +16,8 @@ namespace Miracle.Common.Utility.Ini
         /// <returns></returns>
         public static async Task<IniContext> ReadOrCreateAsync(string path)
         {
-            FileInfo fileInfo = new FileInfo(path);
-            IniContext iniCotext = new IniContext() { Sections = new IniContext.Content() { Items = new List<IniContext.Section>() }, File = fileInfo };
+            FileInfo fileInfo = new(path);
+            IniContext iniCotext = new() { Sections = new IniContext.Content() { Items = new List<IniContext.Section>() }, File = fileInfo };
             string[] lines = null;
             if (File.Exists(path))
             {
@@ -268,7 +268,7 @@ namespace Miracle.Common.Utility.Ini
             /// <returns></returns>
             public override string ToString()
             {
-                StringBuilder sb = new StringBuilder();
+                StringBuilder sb = new();
 
                 if (Sections != null && Sections.Items != null && Sections.Items.Count > 0)
                 {

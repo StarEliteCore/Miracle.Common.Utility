@@ -18,7 +18,7 @@ namespace Miracle.Common.Utility.Security
             {
                 return value;
             }
-            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            MD5CryptoServiceProvider md5 = new();
             byte[] byteValue = Encoding.UTF8.GetBytes(value);
             byte[] byteHash = md5.ComputeHash(byteValue);
             md5.Clear();
@@ -85,8 +85,8 @@ namespace Miracle.Common.Utility.Security
             {
                 var des = new DESCryptoServiceProvider()
                 {
-                    Key = Encoding.ASCII.GetBytes(vKey.ToMD5().Substring(0, 8)),
-                    IV = Encoding.ASCII.GetBytes(ivVal.ToMD5().Substring(0, 8))
+                    Key = Encoding.ASCII.GetBytes(vKey.ToMD5()[..8]),
+                    IV = Encoding.ASCII.GetBytes(ivVal.ToMD5()[..8])
                 };
                 var inputByteArray = Encoding.Default.GetBytes(value);
                 var desencrypt = des.CreateEncryptor();
@@ -111,8 +111,8 @@ namespace Miracle.Common.Utility.Security
             {
                 var des = new DESCryptoServiceProvider()
                 {
-                    Key = Encoding.ASCII.GetBytes(vKey.ToMD5().Substring(0, 8)),
-                    IV = Encoding.ASCII.GetBytes(ivVal.ToMD5().Substring(0, 8))
+                    Key = Encoding.ASCII.GetBytes(vKey.ToMD5()[..8]),
+                    IV = Encoding.ASCII.GetBytes(ivVal.ToMD5()[..8])
                 };
                 string[] values = value.Split('-');
                 var inBytes = new byte[values.Length];

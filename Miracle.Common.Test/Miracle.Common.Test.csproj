@@ -12,14 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Miracle.Common.Utility.Array" Version="5.0.3.102" />
-    <PackageReference Include="Miracle.Common.Utility.ChineseLunar" Version="5.0.3.102" />
-    <PackageReference Include="Miracle.Common.Utility.DateTime" Version="6.0.2" />
-    <PackageReference Include="Miracle.Common.Utility.DateTimeStamp" Version="5.0.3.102" />
-    <PackageReference Include="Miracle.Common.Utility.PinYin" Version="5.0.3.102" />
-    <PackageReference Include="Miracle.Common.Utility.RMB" Version="5.0.3.102" />
     <PackageReference Include="Miracle.Common.Utility.Security" Version="5.0.3.102" />
-    <PackageReference Include="Miracle.Common.Utility.String" Version="5.0.3.102" />
   </ItemGroup>
 
   <ItemGroup>
